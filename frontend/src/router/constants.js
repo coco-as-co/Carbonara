@@ -1,0 +1,17 @@
+export const USER_STATUS = {
+  RH: "RH",
+  CONSULTANT: "CONSULTANT",
+  ADMIN: "ADMIN",
+  COMMERCIAL: "COMMERCIAL",
+};
+
+export const BADGE_STATUS = {
+  THEORY: "THEORY",
+  PRATICAL: "PRATICAL",
+};
+
+export const USER_QUEST_STATUS = {
+  TODO: "TODO",
+  PENDING: "PENDING",
+  DONE: "DONE",
+};
