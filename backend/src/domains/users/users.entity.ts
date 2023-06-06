@@ -1,18 +1,14 @@
 import { Exclude } from 'class-transformer';
-import { IsEmail, Length } from 'class-validator';
+import { IsDate, IsEmail, IsNumber, Length } from 'class-validator';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ unique: true })
-  @Exclude()
-  password: string;
-
   @Column()
-  @IsEmail()
-  email: string;
+  @Length(255)
+  lastname: string;
 
   @Column()
   @Length(255)
@@ -20,5 +16,41 @@ export class User {
 
   @Column()
   @Length(255)
-  lastname: string;
+  address: string;
+
+  @Column()
+  @Length(10)
+  phone: string;
+
+  @Column()
+  @IsEmail()
+  email: string;
+
+  @Column()
+  @IsDate()
+  birthday: Date;
+
+  @Column()
+  @Length(255)
+  role: string;
+
+  @Column()
+  @IsNumber()
+  experience: number;
+
+  @Column({ unique: true })
+  @Exclude()
+  password: string;
+
+  @Column()
+  @IsDate()
+  createdAt: Date;
+
+  @Column()
+  @IsDate()
+  updatedAt: Date;
+
+  @Column()
+  @IsDate()
+  deletedAt: Date;
 }
