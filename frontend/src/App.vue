@@ -3,6 +3,7 @@ import { index, register } from "@/api/auth";
 import { useGetCurrentUser } from "@/services";
 import { onMounted, provide, reactive } from "vue";
 import Header from "./components/Header.vue";
+import Menu from "./components/Menu.vue";
 
 function actionClick() {
   index().then((res) => {
@@ -34,17 +35,15 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div className="min-height h-full">
-    <Header />
-    <button @click="actionClick">APPUYER</button>
-    <main className="flex min-height items-center justify-center bg-gray-600 min-h-full h-full">
-      <router-view class="min-h-full h-full" />
-    </main>
+  <div class="flex min-height h-full justify-between w-screen overflow-hidden">
+    <Menu v-if="currentUser" />
+    <div class="flex-col w-full h-screen overflow-y-auto justify-between">
+      <Header v-if="currentUser" />
+      <main className="flex min-height items-center justify-center min-h-full h-full">
+        <router-view />
+      </main>
+    </div>
   </div>
 </template>
 
-<style scoped>
-.min-height {
-  min-height: calc(100vh - 72px);
-}
-</style>
+<style scoped></style>

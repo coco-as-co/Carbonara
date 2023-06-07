@@ -6,7 +6,6 @@ const routes = [
     name: "login",
     path: "/login",
     component: () => import("@/views/Login.vue"),
-    meta: { loggedIn: false },
   },
   {
     name: "home",
@@ -19,7 +18,7 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(async (to) => {
+/*router.beforeEach(async (to) => {
   const currentUser = await useGetCurrentUser().catch(() => null);
 
   if (currentUser?.status === USER_STATUS.BANNED) {
@@ -48,6 +47,6 @@ router.beforeEach(async (to) => {
       };
     }
   }
-});
+});*/
 
 export default router;
