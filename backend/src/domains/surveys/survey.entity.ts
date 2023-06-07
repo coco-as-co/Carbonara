@@ -1,5 +1,5 @@
-import { IsDate, Length } from 'class-validator';
-import { Quest } from 'src/domains/quests/quests.entity';
+import { Max } from 'class-validator';
+import { Choice } from 'src/domains/choices/choices.entity';
 import {
   Column,
   CreateDateColumn,
@@ -11,26 +11,32 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Skill {
+export class Survey {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  @Length(255)
-  name: string;
+  @Max(255)
+  title: string;
 
+  @Column('text')
+  content: string;
+
+  @Column('timestamp')
+  endedAt: Date;
+
+  @Column()
   @CreateDateColumn()
-  @IsDate()
   createdAt: Date;
 
+  @Column()
   @UpdateDateColumn()
-  @IsDate()
   updatedAt: Date;
 
-  @IsDate()
+  @Column()
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @OneToMany(() => Quest, (quest) => quest.skillId)
-  quests: Quest[];
+  @OneToMany(() => Choice, (choice) => choice.surveys)
+  choices: Choice[];
 }

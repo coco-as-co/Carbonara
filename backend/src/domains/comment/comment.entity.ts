@@ -1,36 +1,41 @@
 import { IsDate, Length } from 'class-validator';
-import { Quest } from 'src/domains/quests/quests.entity';
+import { Article } from 'src/domains/articles/article.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  OneToMany,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class Skill {
+export class Comment {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   @Length(255)
-  name: string;
+  title: string;
 
-  @CreateDateColumn()
+  @Column('text')
+  content: string;
+
   @IsDate()
+  @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   @IsDate()
   updatedAt: Date;
 
-  @IsDate()
   @DeleteDateColumn()
+  @IsDate()
   deletedAt: Date;
 
-  @OneToMany(() => Quest, (quest) => quest.skillId)
-  quests: Quest[];
+  @ManyToOne(() => Article, (article) => article)
+  @JoinColumn()
+  articleId: string;
 }

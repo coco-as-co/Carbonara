@@ -1,14 +1,16 @@
+import { IsDate, Length } from 'class-validator';
+import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
+import { Requirement } from 'src/domains/requirements/requirements.entity';
 import {
-  PrimaryGeneratedColumn,
   Column,
+  CreateDateColumn,
+  DeleteDateColumn,
   Entity,
   ManyToOne,
-  JoinColumn,
-  CreateDateColumn,
+  OneToMany,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
-  DeleteDateColumn,
 } from 'typeorm';
-import { IsDate, Length } from 'class-validator';
 import { Skill } from '../skills/skills.entity';
 @Entity()
 export class Quest {
@@ -42,10 +44,12 @@ export class Quest {
   @IsDate()
   deletedAt: Date;
 
-  @ManyToOne(() => Skill)
-  @JoinColumn({ name: 'skill_id' })
-  skill: Skill;
+  @ManyToOne(() => Skill, (skill) => skill.quests)
+  skillId: string;
 
-  @Column()
-  skill_id: string;
+  @ManyToOne(() => UserQuest, (userQuest) => userQuest.quests)
+  userQuestId: UserQuest;
+
+  @OneToMany(() => Requirement, (requirement) => requirement.quests)
+  requirementId: Requirement[];
 }
