@@ -17,6 +17,8 @@ import { Vote } from 'src/domains/votes/votes.entity';
 import { Requirement } from 'src/domains/requirements/requirements.entity';
 import { Question } from 'src/domains/questions/question.entity';
 import { Answer } from 'src/domains/answers/answers.entity';
+import { Suggestion } from 'src/domains/suggestions/suggestion.entity';
+import { BoxeIdeas } from 'src/domains/boxe_ideas/boxeIdeas.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -44,6 +46,8 @@ import { Answer } from 'src/domains/answers/answers.entity';
         Requirement,
         Question,
         Answer,
+        Suggestion,
+        BoxeIdeas,
       ],
       synchronize: process.env.ENV !== 'production',
     }),
