@@ -8,6 +8,10 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { UserQuest } from '../user_quests/userQuest.entity';
+export enum BadgeStatus {
+  THEORY = 'theory',
+  PRATICAL = 'pratical',
+}
 
 @Entity()
 export class Badge {
@@ -17,8 +21,12 @@ export class Badge {
   @Column()
   image: string;
 
-  @Column()
-  status: string;
+  @Column({
+    type: 'enum',
+    enum: 'BadgeStatus',
+    default: BadgeStatus.THEORY,
+  })
+  status: BadgeStatus;
 
   @Column()
   @CreateDateColumn()
