@@ -31,6 +31,6 @@ export class Skill {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @OneToMany(() => Quest, (quest) => quest.skillId)
+  @OneToMany(() => Quest, (quest) => quest.skill)
   quests: Quest[];
 }

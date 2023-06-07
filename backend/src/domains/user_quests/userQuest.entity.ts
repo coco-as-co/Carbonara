@@ -42,10 +42,10 @@ export class UserQuest {
   deletedAt: Date;
 
   @Column()
-  userId: number;
+  user: number;
 
   @ManyToOne(() => Badge, (badge) => badge.id)
-  badgeId: Badge;
+  badge: Badge;
 
   @OneToMany(() => User, (user) => user.id)
   users: User[];

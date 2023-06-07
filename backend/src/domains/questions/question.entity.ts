@@ -33,7 +33,7 @@ export class Question {
   deletedAt: Date;
 
   @ManyToOne(() => Requirement, (requirement) => requirement.questions)
-  questionId: string;
+  question: string;
 
   @OneToMany(() => Answer, (answer) => answer.id)
   answers: Answer;

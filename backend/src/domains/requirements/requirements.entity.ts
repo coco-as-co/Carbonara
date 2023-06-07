@@ -8,6 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Max } from 'class-validator';
 import { Quest } from '../quests/quests.entity';
 import { Question } from 'src/domains/questions/question.entity';
 @Entity()
@@ -16,7 +17,8 @@ export class Requirement {
   id: string;
 
   @Column()
-  requirementId: string;
+  @Max(255)
+  name: string;
 
   @Column()
   @CreateDateColumn()

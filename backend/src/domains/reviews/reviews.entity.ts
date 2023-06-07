@@ -39,7 +39,7 @@ export class Review {
   deletedAt: Date;
 
   @ManyToOne(() => UserQuest, (user) => user.reviews)
-  userQuestId: UserQuest;
+  userQuest: UserQuest;
 
   @ManyToOne(() => Client, (client) => client.reviews)
   client: Client;

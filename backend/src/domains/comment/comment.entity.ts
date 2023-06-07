@@ -37,5 +37,5 @@ export class Comment {
 
   @ManyToOne(() => Article, (article) => article)
   @JoinColumn()
-  articleId: string;
+  article: string;
 }
