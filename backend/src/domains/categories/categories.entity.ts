@@ -30,6 +30,6 @@ export class Category {
   @IsDate()
   deletedAt: Date;
 
-  @OneToMany(() => Article, (article) => article)
+  @OneToMany(() => Article, (article) => article.category)
   articles: Article[];
 }

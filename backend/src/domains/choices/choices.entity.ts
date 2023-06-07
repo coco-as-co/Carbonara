@@ -34,6 +34,6 @@ export class Choice {
   @ManyToOne(() => Survey, (survey) => survey.choices)
   surveys: Survey[];
 
-  @OneToMany(() => Vote, (vote) => vote.userId)
+  @OneToMany(() => Vote, (vote) => vote.user)
   votes: Vote[];
 }

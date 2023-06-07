@@ -36,5 +36,5 @@ export class Article {
 
   @ManyToOne(() => Category, (category) => category.articles)
   @JoinColumn()
-  categoryId: Category;
+  category: Category;
 }

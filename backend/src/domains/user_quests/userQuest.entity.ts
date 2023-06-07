@@ -24,7 +24,7 @@ export class UserQuest {
 
   @Column({
     type: 'enum',
-    enum: 'BadgeStatus',
+    enum: UserQuestStatus,
     default: UserQuestStatus.TODO,
   })
   status: UserQuestStatus;
@@ -53,6 +53,6 @@ export class UserQuest {
   @OneToMany(() => Quest, (quest) => quest.id)
   quests: Quest[];
 
-  @OneToMany(() => Review, (review) => review.clientId)
+  @OneToMany(() => Review, (review) => review.client)
   reviews: Review[];
 }

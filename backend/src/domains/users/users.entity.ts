@@ -1,6 +1,7 @@
 import { Exclude } from 'class-transformer';
 import { IsDate, IsEmail, IsNumber, Length, Max } from 'class-validator';
 import { Mission } from 'src/domains/missions/missions.entity';
+import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import { Vote } from 'src/domains/votes/votes.entity';
 import {
   Column,
@@ -11,7 +12,6 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { UserQuest } from '../user_quests/userQuest.entity';
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
@@ -69,9 +69,9 @@ export class User {
   @OneToMany(() => UserQuest, (userQuest) => userQuest.users)
   userQuests: UserQuest[];
 
-  @OneToMany(() => Vote, (vote) => vote.userId)
+  @OneToMany(() => Vote, (vote) => vote.user)
   votes: Vote[];
 
-  @OneToMany(() => Mission, (mission) => mission.userId)
+  @OneToMany(() => Mission, (mission) => mission.user)
   missions: Mission[];
 }

@@ -16,7 +16,7 @@ export class Mission {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('string')
+  @Column()
   @Max(255)
   name: string;
 
@@ -42,8 +42,8 @@ export class Mission {
   deletedAt: Date;
 
   @ManyToOne(() => User, (user) => user.missions)
-  userId: User;
+  user: User;
 
   @ManyToOne(() => Client, (client) => client.missions)
-  clientId: Client;
+  client: Client;
 }

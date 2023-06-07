@@ -28,8 +28,8 @@ export class Vote {
   deletedAt: Date;
 
   @ManyToOne(() => User, (user) => user.votes)
-  userId: User;
+  user: User;
 
   @ManyToOne(() => Choice, (choice) => choice.votes)
-  choiceId: Choice;
+  choice: Choice;
 }

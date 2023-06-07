@@ -16,7 +16,7 @@ export class Review {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('string')
+  @Column()
   @Max(255)
   name: string;
 
@@ -42,5 +42,5 @@ export class Review {
   userQuestId: UserQuest;
 
   @ManyToOne(() => Client, (client) => client.reviews)
-  clientId: Client;
+  client: Client;
 }

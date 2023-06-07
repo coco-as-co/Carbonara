@@ -36,9 +36,9 @@ export class Client {
   @IsDate()
   deletedAt: Date;
 
-  @OneToMany(() => Mission, (mission) => mission.clientId)
+  @OneToMany(() => Mission, (mission) => mission.client)
   missions: Mission[];
 
-  @OneToMany(() => Review, (review) => review.clientId)
+  @OneToMany(() => Review, (review) => review.client)
   reviews: Review[];
 }

@@ -9,8 +9,8 @@ import {
 } from 'typeorm';
 import { UserQuest } from '../user_quests/userQuest.entity';
 export enum BadgeStatus {
-  THEORY = 'theory',
-  PRATICAL = 'pratical',
+  THEORY = 'THEORY',
+  PRATICAL = 'PRATICAL',
 }
 
 @Entity()
@@ -23,7 +23,7 @@ export class Badge {
 
   @Column({
     type: 'enum',
-    enum: 'BadgeStatus',
+    enum: BadgeStatus,
     default: BadgeStatus.THEORY,
   })
   status: BadgeStatus;
