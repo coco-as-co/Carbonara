@@ -16,9 +16,15 @@ export class QuestsService {
   }
 
   async findOne(id: string): Promise<Quest> {
-    const quest = await this.questsRepository.findOneBy({ id });
-    if (!quest) throw new Error('Quest not found');
-    return quest;
+    const data = await this.questsRepository.findOne({
+      where: {
+        id,
+        deletedAt: null,
+      },
+    });
+    if (!data) throw new Error("La quête n'existe pas");
+
+    return data;
   }
 
   async create(data: CreateQuestDto): Promise<InsertResult> {
