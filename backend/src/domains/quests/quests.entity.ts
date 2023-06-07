@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import { IsDate, Length } from 'class-validator';
 import { Skill } from '../skills/skills.entity';
+import { userQuest } from '../user_quests/userQuest.entity';
 @Entity()
 export class Quest {
   @PrimaryGeneratedColumn('uuid')
@@ -49,4 +50,7 @@ export class Quest {
 
   @Column()
   skill_id: string;
+
+  @ManyToOne(() => userQuest, (userQuest) => userQuest.quests)
+  userQuest: userQuest;
 }

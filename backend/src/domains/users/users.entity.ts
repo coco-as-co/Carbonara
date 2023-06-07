@@ -1,6 +1,7 @@
 import { Exclude } from 'class-transformer';
 import { IsDate, IsEmail, IsNumber, Length } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { userQuest } from '../user_quests/userQuest.entity';
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
@@ -53,4 +54,7 @@ export class User {
   @Column()
   @IsDate()
   deletedAt: Date;
+
+  @ManyToOne(() => userQuest, (userQuest) => userQuest.users)
+  userQuest: userQuest;
 }
