@@ -1,11 +1,13 @@
 import { IsDate, Length } from 'class-validator';
 import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
+import { Requirement } from 'src/domains/requirements/Requirements.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -48,4 +50,7 @@ export class Quest {
 
   @ManyToOne(() => UserQuest, (userQuest) => userQuest.quests)
   userQuestId: UserQuest;
+
+  @OneToMany(() => Requirement, (requirement) => requirement.quests)
+  requirementId: Requirement[];
 }
