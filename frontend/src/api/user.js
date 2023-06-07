@@ -15,3 +15,4 @@ export function banUser(id) {
 export function giveRoleAdmin(id) {
   return _post(`/users/${id}/role/admin`, {});
 }
+

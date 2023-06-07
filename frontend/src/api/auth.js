@@ -4,10 +4,15 @@ export function getCurrentUser() {
   return _get("/users/me");
 }
 
-export function register(data) {
-  return _post("/users", data);
+export function login(data) {
+  return _post("/login", data);
 }
 
-export function login(data) {
-  return _post("/auth", data);
+export function register(data) {
+  return _post("/auth/register", data);
+}
+
+export function index() {
+  console.log(import.meta.env.VITE_API_URL);
+  return _get("/auth");
 }

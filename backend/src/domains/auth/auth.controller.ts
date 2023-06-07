@@ -16,7 +16,10 @@ export class AuthController {
 
   @Get()
   index() {
-    return 'auth controller';
+    return {
+      message: 'Welcome to the auth API!',
+      success: true,
+    };
   }
 
   @Post('register')

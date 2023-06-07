@@ -6,21 +6,22 @@ axios.interceptors.response.use(
   },
   function (error) {
     if (error?.response?.status === 401) {
-      sessionStorage.removeItem("cw-app-token");
+      sessionStorage.removeItem("ara-app-token");
       window.location.href = "/login";
     }
     return Promise.reject(error);
   }
 );
 
-const URL = import.meta.env.VITE_API_URL;
+// const URL = import.meta.env.VITE_API_URL;
+const URL = "http://localhost:9000";
 
 function get_headers() {
   const headers = {
     "Content-Type": "application/json",
   };
 
-  const token = JSON.parse(sessionStorage.getItem("cw-app-token"));
+  const token = JSON.parse(sessionStorage.getItem("ara-app-token"));
 
   if (token) {
     headers["Authorization"] = "Bearer " + token;
@@ -31,15 +32,15 @@ function get_headers() {
 
 export async function _getAll(path) {
   const headers = get_headers();
-  headers["Content-Type"] = "application/ld-json";
+  // headers["Content-Type"] = "application/ld-json";
+  console.log(URL);
   const response = await axios.get(URL + path, { headers });
-  response.data.items = response.data["hydra:member"];
+  console.log(response);
   return response;
 }
 
 export async function _get(path) {
   const headers = get_headers();
-  headers["Content-Type"] = "application/ld-json";
   const response = await axios.get(URL + path, { headers });
   return response;
 }

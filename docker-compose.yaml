@@ -37,6 +37,7 @@ services:
   frontend:
     container_name: frontend
     build: ./frontend
+    env_file: ./frontend/.env
     volumes:
       - ./frontend:/usr/src/app
       - ./frontend/node_modules:/usr/src/app/node_modules
