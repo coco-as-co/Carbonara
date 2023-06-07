@@ -1,5 +1,6 @@
 import { Exclude } from 'class-transformer';
-import { IsDate, IsEmail, IsNumber, Length } from 'class-validator';
+import { IsDate, IsEmail, IsNumber, Length, Max } from 'class-validator';
+import { Vote } from 'src/domains/votes/votes.entity';
 import {
   Column,
   CreateDateColumn,
@@ -16,22 +17,22 @@ export class User {
   id: string;
 
   @Column()
-  @Length(255)
+  @Max(255)
   lastname: string;
 
   @Column()
-  @Length(255)
+  @Max(255)
   firstname: string;
 
   @Column()
-  @Length(255)
+  @Max(255)
   address: string;
 
   @Column()
-  @Length(10)
+  @Max(10)
   phone: string;
 
-  @Column()
+  @Column({ unique: true })
   @IsEmail()
   email: string;
 
@@ -47,7 +48,7 @@ export class User {
   @IsNumber()
   experience: number;
 
-  @Column({ unique: true })
+  @Column()
   @Exclude()
   password: string;
 
@@ -65,4 +66,7 @@ export class User {
 
   @OneToMany(() => UserQuest, (userQuest) => userQuest.users)
   userQuests: UserQuest[];
+
+  @OneToMany(() => Vote, (vote) => vote.userId)
+  votes: Vote[];
 }
