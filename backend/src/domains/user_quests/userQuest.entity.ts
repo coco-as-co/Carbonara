@@ -1,4 +1,4 @@
-import { Length } from 'class-validator';
+import { Review } from 'src/domains/reviews/reviews.entity';
 import {
   Column,
   CreateDateColumn,
@@ -52,4 +52,7 @@ export class UserQuest {
 
   @OneToMany(() => Quest, (quest) => quest.id)
   quests: Quest[];
+
+  @OneToMany(() => Review, (review) => review.clientId)
+  reviews: Review[];
 }

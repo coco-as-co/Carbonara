@@ -1,5 +1,6 @@
 import { Exclude } from 'class-transformer';
 import { IsDate, IsEmail, IsNumber, Length, Max } from 'class-validator';
+import { Mission } from 'src/domains/missions/missions.entity';
 import { Vote } from 'src/domains/votes/votes.entity';
 import {
   Column,
@@ -50,6 +51,7 @@ export class User {
 
   @Column()
   @Exclude()
+  @Length(8, 20)
   password: string;
 
   @CreateDateColumn()
@@ -69,4 +71,7 @@ export class User {
 
   @OneToMany(() => Vote, (vote) => vote.userId)
   votes: Vote[];
+
+  @OneToMany(() => Mission, (mission) => mission.userId)
+  missions: Mission[];
 }
