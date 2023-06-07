@@ -28,8 +28,7 @@ export class Quest {
   difficulty: string;
 
   @Column()
-  @Length(255)
-  experience: string;
+  experience: number;
 
   @CreateDateColumn()
   @IsDate()
