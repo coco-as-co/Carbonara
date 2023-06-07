@@ -1,6 +1,14 @@
 import { Exclude } from 'class-transformer';
 import { IsDate, IsEmail, IsNumber, Length } from 'class-validator';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { UserQuest } from '../user_quests/userQuest.entity';
 @Entity()
 export class User {
@@ -43,15 +51,15 @@ export class User {
   @Exclude()
   password: string;
 
-  @Column()
+  @CreateDateColumn()
   @IsDate()
   createdAt: Date;
 
-  @Column()
+  @UpdateDateColumn()
   @IsDate()
   updatedAt: Date;
 
-  @Column()
+  @DeleteDateColumn()
   @IsDate()
   deletedAt: Date;
 
