@@ -3,15 +3,18 @@ import { IsDate, IsEmail, IsNumber, Length, Max } from 'class-validator';
 import { Mission } from 'src/domains/missions/missions.entity';
 import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import { Vote } from 'src/domains/votes/votes.entity';
+import { Suggestion } from '../suggestions/suggestion.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
   OneToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { BoxeIdeas } from '../boxe_ideas/boxeIdeas.entity';
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
@@ -74,4 +77,10 @@ export class User {
 
   @OneToMany(() => Mission, (mission) => mission.user)
   missions: Mission[];
+
+  @OneToMany(() => Suggestion, (suggestion) => suggestion.user)
+  suggestions: Suggestion[];
+
+  @ManyToOne(() => BoxeIdeas, (boxeIdeas) => boxeIdeas.user)
+  boxeIdeas: BoxeIdeas[];
 }
