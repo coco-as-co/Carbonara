@@ -1,23 +1,25 @@
-import { IsDate, Length } from 'class-validator';
-import { Quest } from 'src/domains/quests/quests.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
   UpdateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
-
+import { IsDate, Length } from 'class-validator';
+import { Question } from 'src/domains/questions/question.entity';
 @Entity()
-export class Skill {
+export class Answer {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   @Length(255)
   name: string;
+
+  @Column()
+  isCorrect: boolean;
 
   @CreateDateColumn()
   @IsDate()
@@ -27,10 +29,10 @@ export class Skill {
   @IsDate()
   updatedAt: Date;
 
-  @IsDate()
   @DeleteDateColumn()
+  @IsDate()
   deletedAt: Date;
 
-  @OneToMany(() => Quest, (quest) => quest.skillId)
-  quests: Quest[];
+  @ManyToOne(() => Question, (question) => question.id)
+  answers: Answer;
 }
