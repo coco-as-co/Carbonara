@@ -45,7 +45,7 @@ export class Quest {
   deletedAt: Date;
 
   @ManyToOne(() => Skill, (skill) => skill.quests)
-  skill: string;
+  skill: Skill;
 
   @ManyToOne(() => UserQuest, (userQuest) => userQuest.quests)
   userQuest: UserQuest;

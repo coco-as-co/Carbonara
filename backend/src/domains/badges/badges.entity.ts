@@ -40,6 +40,6 @@ export class Badge {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @OneToMany(() => UserQuest, (userQuest) => userQuest.badgeId)
+  @OneToMany(() => UserQuest, (userQuest) => userQuest.badge)
   userQuests: UserQuest[];
 }
