@@ -12,14 +12,22 @@ import {
 import { Badge } from '../badges/badges.entity';
 import { Quest } from '../quests/quests.entity';
 import { User } from '../users/users.entity';
+export enum UserQuestStatus {
+  TODO = 'todo',
+  PENDING = 'pending',
+  DONE = 'done',
+}
 @Entity()
 export class UserQuest {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  @Length(255)
-  status: string;
+  @Column({
+    type: 'enum',
+    enum: 'BadgeStatus',
+    default: UserQuestStatus.TODO,
+  })
+  status: UserQuestStatus;
 
   @Column()
   @CreateDateColumn()
