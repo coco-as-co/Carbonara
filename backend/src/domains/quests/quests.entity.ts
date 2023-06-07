@@ -25,19 +25,7 @@ export class Quest {
 
   @Column()
   @Length(255)
-  type: string;
-
-  @Column()
-  @Length(255)
   difficulty: string;
-
-  @Column()
-  @Length(255)
-  status: string;
-
-  @Column()
-  @Length(255)
-  reward: string;
 
   @Column()
   @Length(255)
