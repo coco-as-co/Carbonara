@@ -7,7 +7,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { IsDate, Length } from 'class-validator';
+import { IsDate, Max } from 'class-validator';
 import { Question } from 'src/domains/questions/question.entity';
 @Entity()
 export class Answer {
@@ -15,7 +15,7 @@ export class Answer {
   id: string;
 
   @Column()
-  @Length(255)
+  @Max(255)
   name: string;
 
   @Column()

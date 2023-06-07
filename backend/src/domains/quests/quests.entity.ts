@@ -46,11 +46,11 @@ export class Quest {
   deletedAt: Date;
 
   @ManyToOne(() => Skill, (skill) => skill.quests)
-  skillId: string;
+  skill: string;
 
   @ManyToOne(() => UserQuest, (userQuest) => userQuest.quests)
-  userQuestId: UserQuest;
+  userQuest: UserQuest;
 
   @OneToMany(() => Requirement, (requirement) => requirement.quests)
-  requirementId: Requirement[];
+  requirement: Requirement[];
 }
