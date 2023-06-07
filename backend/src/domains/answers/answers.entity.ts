@@ -1,24 +1,25 @@
 import {
-  PrimaryGeneratedColumn,
-  Entity,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
   DeleteDateColumn,
+  UpdateDateColumn,
+  Entity,
   ManyToOne,
-  OneToMany,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { IsDate, Length } from 'class-validator';
-import { Requirement } from 'src/domains/requirements/requirements.entity';
-import { Answer } from 'src/domains/answers/answers.entity';
+import { Question } from 'src/domains/questions/question.entity';
 @Entity()
-export class Question {
+export class Answer {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   @Length(255)
   name: string;
+
+  @Column()
+  isCorrect: boolean;
 
   @CreateDateColumn()
   @IsDate()
@@ -32,9 +33,6 @@ export class Question {
   @IsDate()
   deletedAt: Date;
 
-  @ManyToOne(() => Requirement, (requirement) => requirement.questions)
-  questionId: string;
-
-  @OneToMany(() => Answer, (answer) => answer.id)
+  @ManyToOne(() => Question, (question) => question.id)
   answers: Answer;
 }
