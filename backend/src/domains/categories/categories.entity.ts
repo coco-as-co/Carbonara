@@ -1,15 +1,16 @@
 import { IsDate, Length } from 'class-validator';
+import { Article } from 'src/domains/articles/article.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-
 @Entity()
-export class Skill {
+export class Category {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -28,4 +29,7 @@ export class Skill {
   @DeleteDateColumn()
   @IsDate()
   deletedAt: Date;
+
+  @OneToMany(() => Article, (article) => article)
+  articles: Article[];
 }
