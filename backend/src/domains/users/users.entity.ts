@@ -1,5 +1,5 @@
 import { Exclude } from 'class-transformer';
-import { IsDate, IsEmail, Length, Max } from 'class-validator';
+import { IsDate, IsEmail, IsNumber, Length, Max } from 'class-validator';
 import { Mission } from 'src/domains/missions/missions.entity';
 import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import { Vote } from 'src/domains/votes/votes.entity';
