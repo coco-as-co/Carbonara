@@ -36,14 +36,15 @@ onMounted(async () => {
 
 <template>
   <div class="flex min-height h-full justify-between w-screen overflow-hidden">
-    <Menu v-if="currentUser" />
+    <Menu v-if="currentUser.value" />
     <div class="flex-col w-full h-screen overflow-y-auto justify-between">
-      <Header v-if="currentUser" />
+      <Header v-if="currentUser.value" />
       <main className="flex min-height items-center justify-center min-h-full h-full">
         <router-view />
       </main>
     </div>
   </div>
+  <button @click="actionClick">REGISTER</button>
 </template>
 
 <style scoped></style>

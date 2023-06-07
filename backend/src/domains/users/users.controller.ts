@@ -49,4 +49,10 @@ export class UsersController {
 
     return this.request['user'];
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('me')
+  public async me() {
+    return await this.usersService.find(this.request['user'].id);
+  }
 }

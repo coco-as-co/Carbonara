@@ -6,11 +6,13 @@ const routes = [
     name: "login",
     path: "/login",
     component: () => import("@/views/Login.vue"),
+    meta: { loggedIn: false },
   },
   {
     name: "home",
     path: "/",
     component: () => import("@/views/Dashboard.vue"),
+    meta: { loggedIn: true },
   }
 ];
 const router = createRouter({
@@ -18,15 +20,8 @@ const router = createRouter({
   routes,
 });
 
-/*router.beforeEach(async (to) => {
+router.beforeEach(async (to) => {
   const currentUser = await useGetCurrentUser().catch(() => null);
-
-  if (currentUser?.status === USER_STATUS.BANNED) {
-    sessionStorage.removeItem("ara-app-token");
-    return {
-      name: "login",
-    };
-  }
 
   if (to.meta.loggedIn === false && currentUser) {
     return {
@@ -34,19 +29,12 @@ const router = createRouter({
     };
   }
 
-  if (to.meta.authorize && !currentUser?.roles.some((r) => to.meta.authorize?.includes(r))) {
+  if (to.meta.loggedIn === true && !currentUser) {
+    sessionStorage.removeItem("ara-app-token");
     return {
-      name: "catchAll",
+      name: "login",
     };
   }
-
-  if (to.meta.authorizeUpdateOwnProfil) {
-    if (Number(to.params.id) !== currentUser?.id) {
-      return {
-        name: "catchAll",
-      };
-    }
-  }
-});*/
+});
 
 export default router;
