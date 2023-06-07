@@ -1,13 +1,13 @@
 import {
-  PrimaryGeneratedColumn,
-  Entity,
   Column,
-  ManyToOne,
   CreateDateColumn,
-  UpdateDateColumn,
   DeleteDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
-import { userQuest } from '../user_quests/userQuest.entity';
+import { UserQuest } from '../user_quests/userQuest.entity';
 
 @Entity()
 export class Badge {
@@ -32,6 +32,6 @@ export class Badge {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @ManyToOne(() => userQuest, (userQuest) => userQuest.badges)
-  userQuest: userQuest;
+  @OneToMany(() => UserQuest, (userQuest) => userQuest.badgeId)
+  userQuests: UserQuest[];
 }

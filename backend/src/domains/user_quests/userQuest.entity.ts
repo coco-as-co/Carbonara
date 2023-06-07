@@ -1,18 +1,19 @@
-import {
-  PrimaryGeneratedColumn,
-  Column,
-  Entity,
-  OneToMany,
-  CreateDateColumn,
-  UpdateDateColumn,
-  DeleteDateColumn,
-} from 'typeorm';
 import { Length } from 'class-validator';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { Badge } from '../badges/badges.entity';
-import { User } from '../users/users.entity';
 import { Quest } from '../quests/quests.entity';
+import { User } from '../users/users.entity';
 @Entity()
-export class userQuest {
+export class UserQuest {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -35,11 +36,8 @@ export class userQuest {
   @Column()
   userId: number;
 
-  @Column()
-  questId: number;
-
-  @OneToMany(() => Badge, (badge) => badge.id)
-  badges: Badge[];
+  @ManyToOne(() => Badge, (badge) => badge.id)
+  badgeId: Badge;
 
   @OneToMany(() => User, (user) => user.id)
   users: User[];

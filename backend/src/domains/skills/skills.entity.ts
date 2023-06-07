@@ -1,5 +1,14 @@
-import { Length, IsDate } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IsDate, Length } from 'class-validator';
+import { Quest } from 'src/domains/quests/quests.entity';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class Skill {
@@ -10,15 +19,19 @@ export class Skill {
   @Length(255)
   name: string;
 
-  @Column()
   @IsDate()
+  @CreateDateColumn()
   createdAt: Date;
 
-  @Column()
   @IsDate()
+  @UpdateDateColumn()
   updatedAt: Date;
 
-  @Column()
   @IsDate()
+  @DeleteDateColumn()
   deletedAt: Date;
+
+  @Column()
+  @OneToMany(() => Quest, (quest) => quest.skillId)
+  quests: Quest[];
 }
