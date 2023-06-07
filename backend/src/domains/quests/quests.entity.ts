@@ -1,4 +1,5 @@
 import { IsDate, Length } from 'class-validator';
+import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import {
   Column,
   CreateDateColumn,
@@ -9,7 +10,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Skill } from '../skills/skills.entity';
-import { UserQuest } from '../user_quests/userQuest.entity';
 @Entity()
 export class Quest {
   @PrimaryGeneratedColumn('uuid')
