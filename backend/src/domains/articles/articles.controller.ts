@@ -16,11 +16,6 @@ export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 
   @Get()
-  public index() {
-    return 'Hello World to QuestsController!';
-  }
-
-  @Get('all')
   public async getAllArticle() {
     return await this.articlesService.findAll();
   }

@@ -7,6 +7,8 @@ import { UsersModule } from './domains/users/users.module';
 import { QuestsModule } from './domains/quests/quests.module';
 import { BoxeIdeasModule } from './domains/boxe_ideas/boxeIdeas.module';
 import { ArticlesModule } from './domains/articles/articles.module';
+import { CommentsModule } from './domains/comments/comments.module';
+
 @Module({
   imports: [
     DatabaseConfig,
@@ -15,6 +17,7 @@ import { ArticlesModule } from './domains/articles/articles.module';
     QuestsModule,
     ArticlesModule,
     BoxeIdeasModule,
+    CommentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
