@@ -9,6 +9,9 @@ import { BoxeIdeasModule } from './domains/boxe_ideas/boxeIdeas.module';
 import { ArticlesModule } from './domains/articles/articles.module';
 import { CommentsModule } from './domains/comments/comments.module';
 import { SkillsModule } from './domains/skills/skills.module';
+import { UserQuestsModule } from './domains/user_quests/userQuest.module';
+import { RequirementsModule } from './domains/requirements/requirements.module';
+import { QuestionsModule } from './domains/questions/questions.module';
 @Module({
   imports: [
     DatabaseConfig,
@@ -19,6 +22,9 @@ import { SkillsModule } from './domains/skills/skills.module';
     BoxeIdeasModule,
     CommentsModule,
     SkillsModule,
+    UserQuestsModule,
+    RequirementsModule,
+    QuestionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
