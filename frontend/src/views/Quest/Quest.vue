@@ -63,5 +63,8 @@ import Radio from '../../components/Form/Radio.vue';
                 <Radio :class="'col-span-2'" name="dataPassing" value="noneOfTheAbove">d. Aucun des choix ci-dessus</Radio>
             </template>
         </QCM>
+        <div class="col-start-7 col-span-2 flex justify-end mt-5">
+            <Button :variant="'green'">Valider mes réponses</Button>
+        </div>
     </div>
 </template>
