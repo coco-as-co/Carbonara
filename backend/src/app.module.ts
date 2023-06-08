@@ -8,7 +8,7 @@ import { QuestsModule } from './domains/quests/quests.module';
 import { BoxeIdeasModule } from './domains/boxe_ideas/boxeIdeas.module';
 import { ArticlesModule } from './domains/articles/articles.module';
 import { CommentsModule } from './domains/comments/comments.module';
-
+import { SkillsModule } from './domains/skills/skills.module';
 @Module({
   imports: [
     DatabaseConfig,
@@ -18,6 +18,7 @@ import { CommentsModule } from './domains/comments/comments.module';
     ArticlesModule,
     BoxeIdeasModule,
     CommentsModule,
+    SkillsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

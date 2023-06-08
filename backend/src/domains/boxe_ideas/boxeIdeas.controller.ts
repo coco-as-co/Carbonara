@@ -31,7 +31,7 @@ export class BoxeIdeasController {
     return await this.boxeIdeasService.findOne(id);
   }
 
-  @Post('create')
+  @Post()
   public async createBoxeIdeas(@Body() boxeIdeas: CreateBoxeIdeaDto) {
     return await this.boxeIdeasService.create(boxeIdeas);
   }
