@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { BoxeIdeasService } from './boxeIdeas.service';
 import { CreateBoxeIdeaDto, UpdateBoxeIdeaDto } from './boxeIdeas.dto';
 
@@ -16,10 +25,10 @@ export class BoxeIdeasController {
     return await this.boxeIdeasService.findAll();
   }
 
-  @Get('one')
-  public async getOneBoxeIdeas(@Body() boxeIdeas: { id: string }) {
-    if (!boxeIdeas.id) throw new Error("La boite à idée n'existe pas");
-    return await this.boxeIdeasService.findOne(boxeIdeas.id);
+  @Get(':id')
+  public async getOneBoxeIdeas(@Param('id', ParseUUIDPipe) id: string) {
+    if (!id) throw new Error("La boite à idée n'existe pas");
+    return await this.boxeIdeasService.findOne(id);
   }
 
   @Post('create')
@@ -27,15 +36,18 @@ export class BoxeIdeasController {
     return await this.boxeIdeasService.create(boxeIdeas);
   }
 
-  @Patch('update')
-  public async updateBoxeIdeas(@Body() boxeIdeas: UpdateBoxeIdeaDto) {
-    if (!boxeIdeas.id) throw new Error("La boite à idée n'existe pas");
-    return await this.boxeIdeasService.update(boxeIdeas);
+  @Patch(':id')
+  public async updateBoxeIdeas(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() boxeIdeas: UpdateBoxeIdeaDto,
+  ) {
+    if (!id) throw new Error("La boite à idée n'existe pas");
+    return await this.boxeIdeasService.update(id, boxeIdeas);
   }
 
-  @Delete('delete')
-  public async deleteBoxeIdeas(@Body() boxeIdeas: { id: string }) {
-    if (!boxeIdeas.id) throw new Error('BoxeIdeas id not provided');
-    return await this.boxeIdeasService.delete(boxeIdeas.id);
+  @Delete(':id')
+  public async deleteBoxeIdeas(@Param('id', ParseUUIDPipe) id: string) {
+    if (!id) throw new Error('BoxeIdeas id not provided');
+    return await this.boxeIdeasService.delete(id);
   }
 }

@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { BoxeIdeas } from './boxeIdeas.entity';
-import { Param, ParseUUIDPipe } from '@nestjs/common';
 import { CreateBoxeIdeaDto, UpdateBoxeIdeaDto } from './boxeIdeas.dto';
 
 @Injectable()
@@ -16,7 +15,7 @@ export class BoxeIdeasService {
     return this.boxeIdeasRepository.find();
   }
 
-  async findOne(@Param('id', ParseUUIDPipe) id: string): Promise<BoxeIdeas> {
+  async findOne(id: string): Promise<BoxeIdeas> {
     const data = await this.boxeIdeasRepository.findOne({
       where: {
         id,
@@ -31,12 +30,12 @@ export class BoxeIdeasService {
     return this.boxeIdeasRepository.insert(data);
   }
 
-  async update(data: UpdateBoxeIdeaDto): Promise<UpdateResult> {
-    await this.findOne(data.id);
-    return this.boxeIdeasRepository.update(data.id, data);
+  async update(id: string, data: UpdateBoxeIdeaDto): Promise<UpdateResult> {
+    await this.findOne(id);
+    return this.boxeIdeasRepository.update(id, data);
   }
 
-  async delete(@Param('id', ParseUUIDPipe) id: string): Promise<DeleteResult> {
+  async delete(id: string): Promise<DeleteResult> {
     await this.findOne(id);
     return this.boxeIdeasRepository.softDelete(id);
   }
