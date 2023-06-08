@@ -5,8 +5,15 @@ import { DatabaseConfig } from './config/typeorm.config';
 import { AuthModule } from './domains/auth/auth.module';
 import { UsersModule } from './domains/users/users.module';
 import { QuestsModule } from './domains/quests/quests.module';
+import { BoxeIdeasModule } from './domains/boxe_ideas/boxeIdeas.module';
 @Module({
-  imports: [DatabaseConfig, UsersModule, AuthModule, QuestsModule],
+  imports: [
+    DatabaseConfig,
+    UsersModule,
+    AuthModule,
+    QuestsModule,
+    BoxeIdeasModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

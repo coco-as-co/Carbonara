@@ -10,7 +10,6 @@ import {
   DeleteDateColumn,
   Entity,
   OneToMany,
-  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -81,6 +80,8 @@ export class User {
   @OneToMany(() => Suggestion, (suggestion) => suggestion.user)
   suggestions: Suggestion[];
 
-  @ManyToOne(() => BoxeIdeas, (boxeIdeas) => boxeIdeas.user)
+  @OneToMany(() => BoxeIdeas, (boxeIdeas) => boxeIdeas.user)
   boxeIdeas: BoxeIdeas[];
+  //@ManyToOne(() => BoxeIdeas, (boxeIdeas) => boxeIdeas.user)
+  //boxeIdeas: BoxeIdeas[];
 }

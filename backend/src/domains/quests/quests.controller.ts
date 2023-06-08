@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Patch } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+} from '@nestjs/common';
 import { QuestsService } from './quests.service';
 import { Post } from '@nestjs/common';
 import { CreateQuestDto, UpdateQuestDto } from './quests.dto';
@@ -17,10 +25,10 @@ export class QuestsController {
     return await this.questsService.findAll();
   }
 
-  @Get('one')
-  public async getOneQuest(@Body() quests: { id: string }) {
-    if (!quests.id) throw new Error("La quête n'existe pas");
-    return await this.questsService.findOne(quests.id);
+  @Get(':id')
+  public async getOneQuest(@Param('id', ParseUUIDPipe) id: string) {
+    if (!id) throw new Error("La quête n'existe pas");
+    return await this.questsService.findOne(id);
   }
 
   @Post('create')
@@ -28,15 +36,18 @@ export class QuestsController {
     return await this.questsService.create(quests);
   }
 
-  @Patch('update')
-  public async updateQuest(@Body() quests: UpdateQuestDto) {
-    if (!quests.id) throw new Error("La quête n'existe pas");
-    return await this.questsService.update(quests);
+  @Patch(':id')
+  public async updateQuest(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() quests: UpdateQuestDto,
+  ) {
+    if (!id) throw new Error("La quête n'existe pas");
+    return await this.questsService.update(id, quests);
   }
 
-  @Delete('delete')
-  public async deleteQuest(@Body() quests: { id: string }) {
-    if (!quests.id) throw new Error('Quest id not provided');
-    return await this.questsService.delete(quests.id);
+  @Delete(':id')
+  public async deleteQuest(@Param('id', ParseUUIDPipe) id: string) {
+    if (!id) throw new Error('Quest id not provided');
+    return await this.questsService.delete(id);
   }
 }
