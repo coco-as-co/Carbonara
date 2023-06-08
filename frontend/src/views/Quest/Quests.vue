@@ -45,7 +45,7 @@ import Card from '../../components/Card.vue';
             </template>
             <template v-slot:footer>
                 <div></div>
-                <Button :variant="'blue'">Prendre la quête</Button>
+                <Button :variant="'blue'" :href="'/quests/2'">Prendre la quête</Button>
             </template>
         </Card>
     </div>

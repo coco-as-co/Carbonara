@@ -18,6 +18,11 @@ const routes = [
     path: "/quests",
     component: () => import("@/views/Quest/Quests.vue"),
   },
+  {
+    name: "quest",
+    path: "/quests/:id",
+    component: () => import("@/views/Quest/Quest.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),

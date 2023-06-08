@@ -109,7 +109,7 @@ const list = {
 
                 <!-- Log Out -->
                 <ItemMenu :path="'/logout'" :icon="'right-from-bracket'"
-                    :class="'bg-red-600 text-white hover:text-white'" />
+                    :class="'bg-[#E53F49] text-white hover:text-white'" />
             </div>
         </div>
     </aside>

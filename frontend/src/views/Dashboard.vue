@@ -34,8 +34,5 @@ import Radio from '../components/Form/Radio.vue';
 
             </template>
         </Card>
-        <Radio>
-            Oui
-        </Radio>
     </div>
 </template>
