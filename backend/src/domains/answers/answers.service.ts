@@ -3,16 +3,25 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, InsertResult, UpdateResult, DeleteResult } from 'typeorm';
 import { Answer } from './answers.entity';
 import { CreateAnswerDto, UpdateAnswerDto } from './answers.dto';
+import { QuestionsService } from '../questions/questions.service';
 
 @Injectable()
 export class AnswersService {
   constructor(
     @InjectRepository(Answer)
     private readonly answersRepository: Repository<Answer>,
+    private readonly questionsService: QuestionsService,
   ) {}
 
   async findAll(): Promise<Answer[]> {
-    return this.answersRepository.find();
+    const data = await this.answersRepository.find({
+      where: {
+        deletedAt: null,
+      },
+    });
+    if (!data) throw new Error("La réponse n'existe pas");
+
+    return data;
   }
 
   async findOne(id: string): Promise<Answer> {
@@ -28,6 +37,8 @@ export class AnswersService {
   }
 
   async create(data: CreateAnswerDto): Promise<InsertResult> {
+    const question = await this.questionsService.findOne(data.question.id);
+    if (!question) throw new Error("La question n'existe pas");
     return this.answersRepository.insert(data);
   }
 

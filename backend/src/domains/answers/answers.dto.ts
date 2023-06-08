@@ -22,8 +22,4 @@ export class UpdateAnswerDto {
 
   @IsBoolean()
   isCorrect: boolean;
-
-  @ValidateNested()
-  @Type(() => Question)
-  question: Question;
 }
