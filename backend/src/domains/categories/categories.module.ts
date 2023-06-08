@@ -8,4 +8,4 @@ import { CategoriesService } from 'src/domains/categories/categories.service';
   controllers: [CategoriesController],
   providers: [CategoriesService],
 })
-export class ExamsModule {}
+export class CategoriesModule {}

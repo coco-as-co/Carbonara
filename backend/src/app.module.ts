@@ -12,6 +12,7 @@ import { SkillsModule } from './domains/skills/skills.module';
 import { UserQuestsModule } from './domains/user_quests/userQuest.module';
 import { RequirementsModule } from './domains/requirements/requirements.module';
 import { QuestionsModule } from './domains/questions/questions.module';
+import { CategoriesModule } from './domains/categories/categories.module';
 @Module({
   imports: [
     DatabaseConfig,
@@ -25,6 +26,7 @@ import { QuestionsModule } from './domains/questions/questions.module';
     UserQuestsModule,
     RequirementsModule,
     QuestionsModule,
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
