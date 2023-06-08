@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { InsertResult, Repository, UpdateResult } from 'typeorm';
+import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { Quest } from './quests.entity';
 import { CreateQuestDto, UpdateQuestDto } from './quests.dto';
 
@@ -31,12 +31,12 @@ export class QuestsService {
     return this.questsRepository.insert(data);
   }
 
-  async update(data: UpdateQuestDto): Promise<UpdateResult> {
-    await this.findOne(data.id);
-    return this.questsRepository.update(data.id, data);
+  async update(id: string, data: UpdateQuestDto): Promise<UpdateResult> {
+    await this.findOne(id);
+    return this.questsRepository.update(id, data);
   }
 
-  async delete(id: string): Promise<UpdateResult> {
+  async delete(id: string): Promise<DeleteResult> {
     await this.findOne(id);
     return this.questsRepository.softDelete(id);
   }

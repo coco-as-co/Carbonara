@@ -12,7 +12,17 @@ const routes = [
     name: "home",
     path: "/",
     component: () => import("@/views/Dashboard.vue"),
-  }
+  },
+  {
+    name: "quests",
+    path: "/quests",
+    component: () => import("@/views/Quest/Quests.vue"),
+  },
+  {
+    name: "quest",
+    path: "/quests/:id",
+    component: () => import("@/views/Quest/Quest.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),
@@ -22,31 +32,17 @@ const router = createRouter({
 router.beforeEach(async (to) => {
   const currentUser = await useGetCurrentUser().catch(() => null);
 
-  if (currentUser?.status === USER_STATUS.BANNED) {
-    sessionStorage.removeItem("ara-app-token");
-    return {
-      name: "login",
-    };
-  }
-
   if (to.meta.loggedIn === false && currentUser) {
     return {
       name: "home",
     };
   }
 
-  if (to.meta.authorize && !currentUser?.roles.some((r) => to.meta.authorize?.includes(r))) {
+  if (to.meta.loggedIn === true && !currentUser) {
+    sessionStorage.removeItem("ara-app-token");
     return {
-      name: "catchAll",
+      name: "login",
     };
-  }
-
-  if (to.meta.authorizeUpdateOwnProfil) {
-    if (Number(to.params.id) !== currentUser?.id) {
-      return {
-        name: "catchAll",
-      };
-    }
   }
 });
 
