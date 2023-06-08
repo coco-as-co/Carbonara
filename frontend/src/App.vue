@@ -46,7 +46,6 @@ onMounted(async () => {
       </main>
     </div>
   </div>
-  <button @click="actionClick">REGISTER</button>
 </template>
 
 <style scoped>
