@@ -11,17 +11,78 @@ const routes = [
   {
     name: "home",
     path: "/",
-    component: () => import("@/views/Dashboard.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("@/views/Dashboard.vue"),
+      }
+    ]
   },
   {
-    name: "quests",
-    path: "/quests",
-    component: () => import("@/views/Quest/Quests.vue"),
-  },
-  {
-    name: "quest",
-    path: "/quests/:id",
-    component: () => import("@/views/Quest/Quest.vue"),
+    name: "skills",
+    path: "/skills",
+    children: [
+      {
+        name: "skills",
+        path: "",
+        component: () => import("@/views/Skill/List.vue"),
+      },
+      {
+        name: "skill_create",
+        path: "create",
+        component: () => import("@/views/Skill/Create.vue"),
+      },
+      {
+        name: "skill_view",
+        path: ":id",
+        children: [
+          {
+            name: "skill",
+            path: "",
+            component: () => import("@/views/Skill/Skill.vue"),
+          },
+          {
+            name: "questsLayout",
+            path: "quests",
+            children: [
+              {
+                name: "quests",
+                path: "",
+                component: () => import("@/views/Skill/Quest/Quests.vue"),
+              },
+              {
+                name: "requirement",
+                path: ":id/:requirement",
+                children: [
+                  {
+                    name: "requirement_admin",
+                    path: "create",
+                    component: () => import("@/views/Skill/Quest/Requirement/Create.vue"),
+                  },
+                  {
+                    name: "requirement_answer",
+                    path: "answer",
+                    component: () => import("@/views/Skill/Quest/Requirement/Question.vue"),
+                  }
+                ]
+              },
+              {
+                name: "quest_create",
+                path: "create",
+                component: () => import("@/views/Skill/Quest/Create.vue"),
+              },
+              {
+                name: "quest_view",
+                path: ":id",
+                component: () => import("@/views/Skill/Quest/Quest.vue"),
+              },
+
+            ]
+          },
+        ]
+      },
+
+    ]
   },
 ];
 const router = createRouter({

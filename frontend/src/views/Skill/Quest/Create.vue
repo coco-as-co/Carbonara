@@ -1,6 +1,6 @@
 <script setup>
-import Button from '../../components/Button.vue';
-import Card from '../../components/Card.vue';
+import Button from '../../../components/Button.vue';
+import Card from '../../../components/Card.vue';
 
 
 </script>
@@ -22,7 +22,7 @@ import Card from '../../components/Card.vue';
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
             </template>
             <template v-slot:footer>
-                <div></div>
+                <p class="text-xs text-gray-600 font-semibold">12 prérequis</p>
                 <div class="px-4 py-2 text-sm uppercase rounded-[10px] text-[#00BB7E] bg-[#d9f6ec]">
 
                     <font-awesome-icon :icon="['fas', 'check']" class="text-green-500" />
@@ -44,8 +44,8 @@ import Card from '../../components/Card.vue';
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
             </template>
             <template v-slot:footer>
-                <div></div>
-                <Button :variant="'blue'" :href="'/quests/2'">Prendre la quête</Button>
+                <p class="text-xs text-gray-600 font-semibold">12 prérequis</p>
+                <Button :variant="'blue'" :href="'/quests/2/2'">Prendre la quête</Button>
             </template>
         </Card>
     </div>

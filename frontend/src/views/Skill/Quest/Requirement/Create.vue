@@ -1,14 +1,14 @@
 <script setup>
-import Button from '../../components/Button.vue';
-import Card from '../../components/Card.vue';
-import QCM from '../../components/Form/QCM.vue';
-import Radio from '../../components/Form/Radio.vue';
+import Button from '../../../components/Button.vue';
+import Card from '../../../components/Card.vue';
+import QCM from '../../../components/Form/QCM.vue';
+import Radio from '../../../components/Form/Radio.vue';
 
 
 </script>
 
 <template>
-    <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-8 gap-12">
+    <div class="grid grid-cols-2 2xl:grid-cols-8 gap-12">
         <!-- Question 1 -->
         <QCM>
             <template v-slot:question>
@@ -63,8 +63,8 @@ import Radio from '../../components/Form/Radio.vue';
                 <Radio :class="'col-span-2'" name="dataPassing" value="noneOfTheAbove">d. Aucun des choix ci-dessus</Radio>
             </template>
         </QCM>
-        <div class="col-start-7 col-span-2 flex justify-end mt-5">
-            <Button :variant="'green'">Valider mes réponses</Button>
-        </div>
+    </div>
+    <div class="flex justify-center my-10">
+        <Button :variant="'green'">Valider mes réponses</Button>
     </div>
 </template>

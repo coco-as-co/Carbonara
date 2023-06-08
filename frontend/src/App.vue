@@ -40,9 +40,7 @@ onMounted(async () => {
     <div class="relative flex flex-col w-full h-screen justify-between ms-[170px] me-[35px]">
       <Header v-if="currentUser" />
       <main className="pt-[130px] pb-[35px]">
-        <transition name="fade" mode="out-in">
-          <router-view />
-        </transition>
+        <router-view />
       </main>
     </div>
   </div>

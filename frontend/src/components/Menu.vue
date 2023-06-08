@@ -15,7 +15,7 @@ const existing = {
     learnings: {
         title: 'Formations',
         icon: 'graduation-cap',
-        path: '/quests'
+        path: '/skills'
     },
     settings: {
         title: 'Paramètres',
