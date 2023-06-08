@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 import { Max } from 'class-validator';
 import { Quest } from '../quests/quests.entity';
-import { Question } from 'src/domains/questions/question.entity';
+import { Question } from 'src/domains/questions/questions.entity';
 @Entity()
 export class Requirement {
   @PrimaryGeneratedColumn('uuid')
