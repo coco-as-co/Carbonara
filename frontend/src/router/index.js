@@ -81,9 +81,29 @@ const routes = [
           },
         ]
       },
-
     ]
   },
+  {
+    name: "users",
+    path: "/users",
+    children: [
+      {
+        name: "users",
+        path: "",
+        component: () => import("@/views/User/List.vue"),
+      },
+      {
+        name: "user_create",
+        path: "create",
+        component: () => import("@/views/User/Create.vue"),
+      },
+      {
+        name: "user_view",
+        path: ":id",
+        component: () => import("@/views/User/User.vue"),
+      },
+    ]
+  }
 ];
 const router = createRouter({
   history: createWebHistory(),
