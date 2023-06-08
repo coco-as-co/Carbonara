@@ -12,8 +12,12 @@ const routes = [
     name: "home",
     path: "/",
     component: () => import("@/views/Dashboard.vue"),
-    meta: { loggedIn: true },
-  }
+  },
+  {
+    name: "quests",
+    path: "/quests",
+    component: () => import("@/views/Quest/Quests.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),

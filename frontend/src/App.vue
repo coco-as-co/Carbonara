@@ -35,16 +35,28 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex min-height h-full justify-between w-screen overflow-hidden">
-    <Menu v-if="currentUser.value" />
-    <div class="flex-col w-full h-screen overflow-y-auto justify-between">
-      <Header v-if="currentUser.value" />
-      <main className="flex min-height items-center justify-center min-h-full h-full">
-        <router-view />
+  <div class="flex min-height h-full justify-between w-screen overflow-auto">
+    <Menu v-if="currentUser" />
+    <div class="relative flex flex-col w-full h-screen justify-between ms-[170px] me-[35px]">
+      <Header v-if="currentUser" />
+      <main className="pt-[130px] pb-[35px]">
+        <transition name="fade" mode="out-in">
+          <router-view />
+        </transition>
       </main>
     </div>
   </div>
   <button @click="actionClick">REGISTER</button>
 </template>
 
-<style scoped></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

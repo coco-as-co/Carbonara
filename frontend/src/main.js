@@ -10,10 +10,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 
-import { faGear, faHouse, faUser, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
+import { faGear, faHouse, faUser, faPeopleGroup, faCalendarWeek, faRightFromBracket, faComments, faFaceSmileBeam, faNewspaper, faGraduationCap, faFolderOpen, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 
-library.add(faGear, faHouse, faUser, faPeopleGroup)
+library.add(faGear, faHouse, faUser, faPeopleGroup, faCalendarWeek, faRightFromBracket, faComments, faFaceSmileBeam, faNewspaper, faGraduationCap, faFolderOpen, faCheck)
 
 
 
