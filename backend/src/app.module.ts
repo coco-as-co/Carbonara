@@ -10,6 +10,7 @@ import { ArticlesModule } from './domains/articles/articles.module';
 import { SkillsModule } from './domains/skills/skills.module';
 import { UserQuestsModule } from './domains/user_quests/userQuest.module';
 import { RequirementsModule } from './domains/requirements/requirements.module';
+import { QuestionsModule } from './domains/questions/questions.module';
 @Module({
   imports: [
     DatabaseConfig,
@@ -21,6 +22,7 @@ import { RequirementsModule } from './domains/requirements/requirements.module';
     SkillsModule,
     UserQuestsModule,
     RequirementsModule,
+    QuestionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

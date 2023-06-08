@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { IsDate, Max } from 'class-validator';
-import { Question } from 'src/domains/questions/question.entity';
+import { Question } from 'src/domains/questions/questions.entity';
 @Entity()
 export class Answer {
   @PrimaryGeneratedColumn('uuid')

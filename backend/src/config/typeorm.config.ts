@@ -8,7 +8,7 @@ import { Category } from 'src/domains/categories/categories.entity';
 import { Choice } from 'src/domains/choices/choices.entity';
 import { Comment } from 'src/domains/comment/comment.entity';
 import { Mission } from 'src/domains/missions/missions.entity';
-import { Question } from 'src/domains/questions/question.entity';
+import { Question } from 'src/domains/questions/questions.entity';
 import { Quest } from 'src/domains/quests/quests.entity';
 import { Requirement } from 'src/domains/requirements/requirements.entity';
 import { Review } from 'src/domains/reviews/reviews.entity';
