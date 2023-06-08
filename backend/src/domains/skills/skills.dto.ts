@@ -1,13 +1,7 @@
-import { IsString, IsUUID, ValidateNested } from 'class-validator';
-import { Type } from 'class-transformer';
-import { Quest } from '../quests/quests.entity';
+import { IsString, IsUUID } from 'class-validator';
 export class CreateSkillDto {
   @IsString()
   name: string;
-
-  @ValidateNested()
-  @Type(() => Quest)
-  quest: Quest;
 }
 
 export class UpdateSkillDto {
@@ -16,8 +10,4 @@ export class UpdateSkillDto {
 
   @IsString()
   name: string;
-
-  @ValidateNested()
-  @Type(() => Quest)
-  quest: Quest;
 }
