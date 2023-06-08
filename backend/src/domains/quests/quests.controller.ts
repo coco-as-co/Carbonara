@@ -31,7 +31,7 @@ export class QuestsController {
     return await this.questsService.findOne(id);
   }
 
-  @Post('create')
+  @Post()
   public async createQuest(@Body() quests: CreateQuestDto) {
     return await this.questsService.create(quests);
   }

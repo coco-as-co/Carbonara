@@ -31,7 +31,7 @@ export class ArticlesController {
     return await this.articlesService.findOne(id);
   }
 
-  @Post('create')
+  @Post()
   public async createArticle(@Body() quests: CreateArticlesDto) {
     return await this.articlesService.create(quests);
   }
