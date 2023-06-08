@@ -13,7 +13,10 @@ import Card from '../../components/Card.vue';
             </template>
             <template v-slot:footer>
                 <div></div>
-                <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
+                <div>
+                    <Button :variant="'green'" :href="'/skills/1/quests'" class="me-3">Accéder</Button>
+                    <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
+                </div>
             </template>
         </Card>
         <Card>
@@ -22,7 +25,10 @@ import Card from '../../components/Card.vue';
             </template>
             <template v-slot:footer>
                 <div></div>
-                <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
+                <div>
+                    <Button :variant="'green'" :href="'/skills/2/quests'" class="me-3">Accéder</Button>
+                    <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
+                </div>
             </template>
         </Card>
         <Card>
@@ -31,7 +37,10 @@ import Card from '../../components/Card.vue';
             </template>
             <template v-slot:footer>
                 <div></div>
-                <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
+                <div>
+                    <Button :variant="'green'" :href="'/skills/3/quests'" class="me-3">Accéder</Button>
+                    <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
+                </div>
             </template>
         </Card>
         <Button :href="'/skills/create'" :class="'rounded-[20px] shadow-[0_5px_55px_0_rgba(0,0,0,0.1)]'">

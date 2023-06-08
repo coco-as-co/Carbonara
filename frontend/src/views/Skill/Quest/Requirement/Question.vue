@@ -1,8 +1,8 @@
 <script setup>
-import Button from '../../../components/Button.vue';
-import Card from '../../../components/Card.vue';
-import QCM from '../../../components/Form/QCM.vue';
-import Radio from '../../../components/Form/Radio.vue';
+import Button from '../../../../components/Button.vue';
+import Card from '../../../../components/Card.vue';
+import QCM from '../../../../components/Form/QCM.vue';
+import Radio from '../../../../components/Form/Radio.vue';
 
 
 </script>

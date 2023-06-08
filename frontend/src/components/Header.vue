@@ -1,10 +1,11 @@
 <template>
   <header class="fixed top-[35px] right-[52px] left-[170px]">
     <div class="flex justify-between min-h-[60px] h-[60px]">
-      <div
+      <button @click="$router.go(-1)"
         class="bg-[#FDFDFD]/50 shadow-[0_5px_55px_0_rgba(0,0,0,0.1)] backdrop-blur-xl py-[20px] px-[35px] rounded-[20px] flex items-center ">
-        Accueil
-      </div>
+        <font-awesome-icon :icon="['fas', 'chevron-left']" class="text-2xl me-5" />
+        Retour
+      </button>
       <div class="flex gap-x-5">
         <div
           class="bg-[#FDFDFD]/50 shadow-[0_5px_55px_0_rgba(0,0,0,0.1)] backdrop-blur-xl py-[10px] px-[20px] rounded-[20px] flex items-center gap-x-5">
