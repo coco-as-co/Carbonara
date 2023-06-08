@@ -7,6 +7,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  ManyToOne,
 } from 'typeorm';
 import { User } from 'src/domains/users/users.entity';
 
@@ -34,6 +35,8 @@ export class BoxeIdeas {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @OneToMany(() => User, (user) => user.id)
+  //@OneToMany(() => User, (user) => user.id)
+  //user: User;
+  @ManyToOne(() => User, (user) => user.id)
   user: User;
 }
