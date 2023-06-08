@@ -6,9 +6,9 @@ import {
   Param,
   ParseUUIDPipe,
   Patch,
+  Post,
 } from '@nestjs/common';
 import { QuestsService } from './quests.service';
-import { Post } from '@nestjs/common';
 import { CreateQuestDto, UpdateQuestDto } from './quests.dto';
 
 @Controller('quests')
