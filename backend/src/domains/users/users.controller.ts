@@ -53,6 +53,6 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   @Get('me')
   public async me() {
-    return await this.usersService.find(this.request['user'].id);
+    return await this.usersService.findOne(this.request['user'].id);
   }
 }
