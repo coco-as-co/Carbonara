@@ -66,6 +66,7 @@ export class User {
   @Column({
     type: 'enum',
     enum: RoleUser,
+    default: RoleUser.CONSULTANT,
   })
   role: RoleUser;
 

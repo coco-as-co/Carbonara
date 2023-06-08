@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Answer } from 'src/domains/answers/answers.entity';
-import { Article } from 'src/domains/articles/article.entity';
+import { Article } from 'src/domains/articles/articles.entity';
 import { Badge } from 'src/domains/badges/badges.entity';
 import { BoxeIdeas } from 'src/domains/boxe_ideas/boxeIdeas.entity';
 import { Category } from 'src/domains/categories/categories.entity';

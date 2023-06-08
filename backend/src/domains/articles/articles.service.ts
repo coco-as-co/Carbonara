@@ -31,9 +31,9 @@ export class ArticlesService {
     return this.ArticlesRepository.insert(data);
   }
 
-  async update(data: UpdateArticlesDto): Promise<UpdateResult> {
-    await this.findOne(data.id);
-    return this.ArticlesRepository.update(data.id, data);
+  async update(id: string, data: UpdateArticlesDto): Promise<UpdateResult> {
+    await this.findOne(id);
+    return this.ArticlesRepository.update(id, data);
   }
 
   async delete(id: string): Promise<UpdateResult> {
