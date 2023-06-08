@@ -20,7 +20,7 @@ export enum UserQuestStatus {
 @Entity()
 export class UserQuest {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: string;
 
   @Column({
     type: 'enum',
