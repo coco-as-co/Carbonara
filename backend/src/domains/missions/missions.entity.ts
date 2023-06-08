@@ -1,5 +1,4 @@
 import { Max } from 'class-validator';
-import { Client } from 'src/domains/clients/clients.entity';
 import { User } from 'src/domains/users/users.entity';
 import {
   Column,
@@ -41,9 +40,9 @@ export class Mission {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @ManyToOne(() => User, (user) => user.missions)
-  user: User;
+  @ManyToOne(() => User, (user) => user.consultantMissions)
+  consultant: User;
 
-  @ManyToOne(() => Client, (client) => client.missions)
-  client: Client;
+  @ManyToOne(() => User, (user) => user.clientMissions)
+  client: User;
 }

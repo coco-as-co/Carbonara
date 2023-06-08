@@ -1,6 +1,6 @@
 import { Max } from 'class-validator';
-import { Client } from 'src/domains/clients/clients.entity';
 import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
+import { User } from 'src/domains/users/users.entity';
 import {
   Column,
   CreateDateColumn,
@@ -41,6 +41,6 @@ export class Review {
   @ManyToOne(() => UserQuest, (user) => user.reviews)
   userQuest: UserQuest;
 
-  @ManyToOne(() => Client, (client) => client.reviews)
-  client: Client;
+  @ManyToOne(() => User, (user) => user.reviews)
+  client: User;
 }

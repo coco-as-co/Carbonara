@@ -1,9 +1,16 @@
 import { Exclude } from 'class-transformer';
-import { IsDate, IsEmail, IsNumber, Length, Max } from 'class-validator';
+import {
+  IsDate,
+  IsEmail,
+  IsNumber,
+  IsOptional,
+  Length,
+  Max,
+} from 'class-validator';
 import { Mission } from 'src/domains/missions/missions.entity';
+import { Review } from 'src/domains/reviews/reviews.entity';
 import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import { Vote } from 'src/domains/votes/votes.entity';
-import { Suggestion } from '../suggestions/suggestion.entity';
 import {
   Column,
   CreateDateColumn,
@@ -14,6 +21,15 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { BoxeIdeas } from '../boxe_ideas/boxeIdeas.entity';
+import { Suggestion } from '../suggestions/suggestion.entity';
+export enum RoleUser {
+  ADMIN = 'ADMIN',
+  CLIENT = 'CLIENT',
+  COMMERCIAL = 'COMMERCIAL',
+  CONSULTANT = 'CONSULTANT',
+  RH = 'RH',
+}
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
@@ -29,10 +45,12 @@ export class User {
 
   @Column()
   @Max(255)
+  @IsOptional()
   address: string;
 
   @Column()
   @Max(10)
+  @IsOptional()
   phone: string;
 
   @Column({ unique: true })
@@ -41,14 +59,19 @@ export class User {
 
   @Column()
   @IsDate()
+  @IsOptional()
   birthday: Date;
 
-  @Column()
-  @Length(255)
-  role: string;
+  @Max(255)
+  @Column({
+    type: 'enum',
+    enum: RoleUser,
+  })
+  role: RoleUser;
 
   @Column()
   @IsNumber()
+  @IsOptional()
   experience: number;
 
   @Column()
@@ -74,14 +97,18 @@ export class User {
   @OneToMany(() => Vote, (vote) => vote.user)
   votes: Vote[];
 
-  @OneToMany(() => Mission, (mission) => mission.user)
-  missions: Mission[];
+  @OneToMany(() => Mission, (mission) => mission.client)
+  clientMissions: Mission[];
+
+  @OneToMany(() => Mission, (mission) => mission.consultant)
+  consultantMissions: Mission[];
 
   @OneToMany(() => Suggestion, (suggestion) => suggestion.user)
   suggestions: Suggestion[];
 
   @OneToMany(() => BoxeIdeas, (boxeIdeas) => boxeIdeas.user)
   boxeIdeas: BoxeIdeas[];
-  //@ManyToOne(() => BoxeIdeas, (boxeIdeas) => boxeIdeas.user)
-  //boxeIdeas: BoxeIdeas[];
+
+  @OneToMany(() => Review, (review) => review.client)
+  reviews: Review[];
 }
