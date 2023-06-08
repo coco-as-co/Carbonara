@@ -7,6 +7,7 @@ import { UsersModule } from './domains/users/users.module';
 import { QuestsModule } from './domains/quests/quests.module';
 import { BoxeIdeasModule } from './domains/boxe_ideas/boxeIdeas.module';
 import { ArticlesModule } from './domains/articles/articles.module';
+import { SkillsModule } from './domains/skills/skills.module';
 @Module({
   imports: [
     DatabaseConfig,
@@ -15,6 +16,7 @@ import { ArticlesModule } from './domains/articles/articles.module';
     QuestsModule,
     ArticlesModule,
     BoxeIdeasModule,
+    SkillsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
