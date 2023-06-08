@@ -5,7 +5,7 @@ export function getCurrentUser() {
 }
 
 export function login(data) {
-  return _post("/login", data);
+  return _post("/auth/login", data);
 }
 
 export function register(data) {
