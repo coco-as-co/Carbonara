@@ -28,6 +28,9 @@ export class CategoriesService {
         id,
         deletedAt: null,
       },
+      relations: {
+        articles: true,
+      },
     });
 
     if (!data) throw new NotFoundException();
