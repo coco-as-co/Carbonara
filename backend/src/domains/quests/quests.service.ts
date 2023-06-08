@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param, ParseUUIDPipe } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { InsertResult, Repository, UpdateResult } from 'typeorm';
+import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { Quest } from './quests.entity';
 import { CreateQuestDto, UpdateQuestDto } from './quests.dto';
 
@@ -15,7 +15,7 @@ export class QuestsService {
     return this.questsRepository.find();
   }
 
-  async findOne(id: string): Promise<Quest> {
+  async findOne(@Param('id', ParseUUIDPipe) id: string): Promise<Quest> {
     const data = await this.questsRepository.findOne({
       where: {
         id,
@@ -36,7 +36,7 @@ export class QuestsService {
     return this.questsRepository.update(data.id, data);
   }
 
-  async delete(id: string): Promise<UpdateResult> {
+  async delete(@Param('id', ParseUUIDPipe) id: string): Promise<DeleteResult> {
     await this.findOne(id);
     return this.questsRepository.softDelete(id);
   }

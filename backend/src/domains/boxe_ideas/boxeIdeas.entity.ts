@@ -1,5 +1,13 @@
 import { Max } from 'class-validator';
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
+} from 'typeorm';
 import { User } from 'src/domains/users/users.entity';
 
 @Entity()
@@ -13,6 +21,18 @@ export class BoxeIdeas {
   @Column()
   @Max(255)
   name: string;
+
+  @Column()
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @Column()
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @Column()
+  @DeleteDateColumn()
+  deletedAt: Date;
 
   @OneToMany(() => User, (user) => user.id)
   user: User;
