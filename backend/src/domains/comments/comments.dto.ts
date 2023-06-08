@@ -1,6 +1,4 @@
-import { IsOptional, IsString, IsUUID, ValidateNested } from 'class-validator';
-import { Article } from '../articles/articles.entity';
-import { Type } from 'class-transformer';
+import { IsOptional, IsString, IsUUID } from 'class-validator';
 
 export class CreateCommentsDto {
   @IsString()
@@ -27,7 +25,5 @@ export class UpdateCommentsDto {
 
   @IsUUID()
   @IsOptional()
-  @ValidateNested()
-  @Type(() => Article)
-  articleId: Article;
+  articleId: string;
 }
