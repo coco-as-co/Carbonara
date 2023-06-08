@@ -10,9 +10,7 @@ export class CreateCommentsDto {
   content: string;
 
   @IsUUID()
-  @ValidateNested()
-  @Type(() => Article)
-  articleId: Article;
+  articleId: string;
 }
 
 export class UpdateCommentsDto {

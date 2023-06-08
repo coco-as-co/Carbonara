@@ -1,5 +1,6 @@
 import { IsDate, Length } from 'class-validator';
 import { Category } from 'src/domains/categories/categories.entity';
+import { Comment } from 'src/domains/comments/comments.entity';
 import {
   Column,
   CreateDateColumn,
@@ -7,6 +8,7 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -37,4 +39,7 @@ export class Article {
   @ManyToOne(() => Category, (category) => category.articles)
   @JoinColumn()
   category: Category;
+
+  @OneToMany(() => Comment, (comment) => comment.article)
+  comments: Comment[];
 }
