@@ -16,11 +16,6 @@ export class UserQuestController {
   constructor(private readonly userQuestService: UserQuestService) {}
 
   @Get()
-  public index() {
-    return 'Hello World to UserQuestController!';
-  }
-
-  @Get('all')
   public async getAllUserQuests() {
     return await this.userQuestService.findAll();
   }

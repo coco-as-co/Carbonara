@@ -16,11 +16,6 @@ export class BoxeIdeasController {
   constructor(private readonly boxeIdeasService: BoxeIdeasService) {}
 
   @Get()
-  public index() {
-    return 'Hello World to BoxeIdeasController!';
-  }
-
-  @Get('all')
   public async getAllBoxeIdeas() {
     return await this.boxeIdeasService.findAll();
   }

@@ -16,11 +16,6 @@ export class SkillsController {
   constructor(private readonly skillsService: SkillsService) {}
 
   @Get()
-  public index() {
-    return 'Hello World to SkillsController!';
-  }
-
-  @Get('all')
   public async getAllSkills() {
     return await this.skillsService.findAll();
   }

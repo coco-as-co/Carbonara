@@ -16,11 +16,6 @@ export class QuestsController {
   constructor(private readonly questsService: QuestsService) {}
 
   @Get()
-  public index() {
-    return 'Hello World to QuestsController!';
-  }
-
-  @Get('all')
   public async getAllQuests() {
     return await this.questsService.findAll();
   }
