@@ -7,31 +7,61 @@ import Card from '../../../components/Card.vue';
 
 <template>
     <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
-        <Card :class="'col-span-1'">
+        <Card>
+            <template v-slot:header>
+                <span class="text-sm font-light text-gray-800">QCM</span>
+                <div>
+                    <span class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
+                </div>
+            </template>
             <template v-slot:title>
-                ReactJS
+                La base de ReactJS
+            </template>
+            <template v-slot:body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
             </template>
             <template v-slot:footer>
-                <div></div>
-                <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
+                <p class="text-xs text-gray-600 font-semibold">12 questions</p>
+                <div class="px-4 py-2 text-sm uppercase rounded-[10px] text-[#00BB7E] bg-[#d9f6ec]">
+
+                    <font-awesome-icon :icon="['fas', 'check']" class="text-green-500" />
+                </div>
             </template>
         </Card>
         <Card>
+            <template v-slot:header>
+                <span class="text-sm font-light text-gray-800">QCM</span>
+                <div>
+                    <span class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
+                </div>
+            </template>
             <template v-slot:title>
-                Java
+                Les BDD
+            </template>
+            <template v-slot:body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
             </template>
             <template v-slot:footer>
-                <div></div>
-                <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
+                <p class="text-xs text-gray-600 font-semibold">12 questions</p>
+                <Button :variant="'blue'" :href="'/quests/2/2'">Prendre la quête</Button>
             </template>
         </Card>
         <Card>
+            <template v-slot:header>
+                <span class="text-sm font-light text-gray-800">QCM</span>
+                <div>
+                    <span class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
+                </div>
+            </template>
             <template v-slot:title>
-                C#
+                Objectif: 100% de réussite
+            </template>
+            <template v-slot:body>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
             </template>
             <template v-slot:footer>
-                <div></div>
-                <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
+                <p class="text-xs text-gray-600 font-semibold">12 questions</p>
+                <Button :variant="'blue'" :href="'/quests/2/2'">Prendre la quête</Button>
             </template>
         </Card>
     </div>

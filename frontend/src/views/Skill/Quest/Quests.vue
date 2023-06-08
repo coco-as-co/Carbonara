@@ -45,14 +45,14 @@ import Card from '../../../components/Card.vue';
             </template>
             <template v-slot:footer>
                 <p class="text-xs text-gray-600 font-semibold">12 prérequis</p>
-                <Button :variant="'blue'" :href="'/quests/2/2'">Prendre la quête</Button>
+                <Button :variant="'blue'" :href="'/skills/2/quests/2'">Commencer la quête</Button>
             </template>
         </Card>
         <Card>
             <template v-slot:header>
                 <span class="text-sm font-light text-gray-800">Quête</span>
                 <div>
-                    <span class="px-3 py-1 text-xs text-amber-800 uppercase bg-amber-200 rounded-full me-3">Niv. 2</span>
+                    <span class="px-3 py-1 text-xs text-amber-800 uppercase bg-amber-200 rounded-full me-3">Niv. 3</span>
                     <span class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
                 </div>
             </template>
@@ -64,7 +64,7 @@ import Card from '../../../components/Card.vue';
             </template>
             <template v-slot:footer>
                 <p class="text-xs text-gray-600 font-semibold">12 prérequis</p>
-                <Button :variant="'blue'" :href="'/quests/2/2'">Prendre la quête</Button>
+                <Button :variant="'blue'" :href="'/skills/2/quests/3'">Commencer la quête</Button>
             </template>
         </Card>
     </div>
