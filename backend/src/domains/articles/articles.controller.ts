@@ -16,18 +16,12 @@ export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 
   @Get()
-  public index() {
-    return 'Hello World to QuestsController!';
-  }
-
-  @Get('all')
   public async getAllArticle() {
     return await this.articlesService.findAll();
   }
 
   @Get(':id')
   public async getOneArticle(@Param('id', ParseUUIDPipe) id: string) {
-    if (!id) throw new Error("La quête n'existe pas");
     return await this.articlesService.findOne(id);
   }
 
@@ -41,13 +35,11 @@ export class ArticlesController {
     @Param('id', ParseUUIDPipe) id: string,
     @Body() quests: UpdateArticlesDto,
   ) {
-    if (!id) throw new Error("La quête n'existe pas");
     return await this.articlesService.update(id, quests);
   }
 
   @Delete(':id')
   public async deleteArticle(@Param('id', ParseUUIDPipe) id: string) {
-    if (!id) throw new Error('Quest id not provided');
     return await this.articlesService.delete(id);
   }
 }

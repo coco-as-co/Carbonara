@@ -6,7 +6,7 @@ import { Badge } from 'src/domains/badges/badges.entity';
 import { BoxeIdeas } from 'src/domains/boxe_ideas/boxeIdeas.entity';
 import { Category } from 'src/domains/categories/categories.entity';
 import { Choice } from 'src/domains/choices/choices.entity';
-import { Comment } from 'src/domains/comment/comment.entity';
+import { Comment } from 'src/domains/comments/comments.entity';
 import { Mission } from 'src/domains/missions/missions.entity';
 import { Question } from 'src/domains/questions/questions.entity';
 import { Quest } from 'src/domains/quests/quests.entity';

@@ -35,7 +35,7 @@ export class Comment {
   @IsDate()
   deletedAt: Date;
 
-  @ManyToOne(() => Article, (article) => article)
+  @ManyToOne(() => Article, (articles) => articles.comments)
   @JoinColumn()
-  article: string;
+  article: Article;
 }

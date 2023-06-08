@@ -21,8 +21,11 @@ export class ArticlesService {
         id,
         deletedAt: null,
       },
+      relations: {
+        comments: true,
+      },
     });
-    if (!data) throw new Error("La quête n'existe pas");
+    if (!data) throw new Error("La relation n'existe pas");
 
     return data;
   }

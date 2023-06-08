@@ -7,6 +7,7 @@ import { UsersModule } from './domains/users/users.module';
 import { QuestsModule } from './domains/quests/quests.module';
 import { BoxeIdeasModule } from './domains/boxe_ideas/boxeIdeas.module';
 import { ArticlesModule } from './domains/articles/articles.module';
+import { CommentsModule } from './domains/comments/comments.module';
 import { SkillsModule } from './domains/skills/skills.module';
 import { UserQuestsModule } from './domains/user_quests/userQuest.module';
 import { RequirementsModule } from './domains/requirements/requirements.module';
@@ -19,6 +20,7 @@ import { QuestionsModule } from './domains/questions/questions.module';
     QuestsModule,
     ArticlesModule,
     BoxeIdeasModule,
+    CommentsModule,
     SkillsModule,
     UserQuestsModule,
     RequirementsModule,
