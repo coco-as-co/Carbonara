@@ -34,7 +34,7 @@ import Card from '../../components/Card.vue';
                 <Button :variant="'blue'" :href="'/quests/1/1'">Modifier</Button>
             </template>
         </Card>
-        <Button :href="'/skills/create'">
+        <Button :href="'/skills/create'" :class="'rounded-[20px]'">
             <div class="flex items-center justify-center h-full gap-x-4">
                 <font-awesome-icon :icon="['fas', 'plus']" class="text-2xl" />
                 Ajouter un skill
