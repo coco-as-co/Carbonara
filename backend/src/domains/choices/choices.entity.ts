@@ -5,6 +5,7 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -31,8 +32,9 @@ export class Choice {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @ManyToOne(() => Survey, (survey) => survey.choices)
-  surveys: Survey[];
+  @ManyToOne(() => Survey, (surveys) => surveys.choices)
+  @JoinColumn()
+  survey: Survey;
 
   @OneToMany(() => Vote, (vote) => vote.user)
   votes: Vote[];

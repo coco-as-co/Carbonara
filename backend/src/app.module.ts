@@ -14,6 +14,7 @@ import { RequirementsModule } from './domains/requirements/requirements.module';
 import { QuestionsModule } from './domains/questions/questions.module';
 import { CategoriesModule } from './domains/categories/categories.module';
 import { SurveysModule } from './domains/surveys/surveys.module';
+import { ChoicesModule } from './domains/choices/choices.module';
 @Module({
   imports: [
     DatabaseConfig,
@@ -29,6 +30,7 @@ import { SurveysModule } from './domains/surveys/surveys.module';
     QuestionsModule,
     CategoriesModule,
     SurveysModule,
+    ChoicesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

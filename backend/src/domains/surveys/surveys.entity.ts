@@ -37,6 +37,6 @@ export class Survey {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @OneToMany(() => Choice, (choice) => choice.surveys)
+  @OneToMany(() => Choice, (choice) => choice.survey)
   choices: Choice[];
 }

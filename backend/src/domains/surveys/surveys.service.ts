@@ -25,6 +25,9 @@ export class SurveysService {
         id,
         deletedAt: null,
       },
+      relations: {
+        choices: true,
+      },
     });
 
     if (!data) throw new NotFoundException();
