@@ -36,6 +36,6 @@ export class Choice {
   @JoinColumn()
   survey: Survey;
 
-  @OneToMany(() => Vote, (vote) => vote.user)
+  @OneToMany(() => Vote, (vote) => vote.choice)
   votes: Vote[];
 }
