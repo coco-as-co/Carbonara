@@ -18,7 +18,7 @@ export class QuestsService {
       },
       relations: {
         skill: true,
-        userQuest: true,
+        userQuests: true,
         requirements: true,
         suggestions: true,
       },
@@ -35,7 +35,7 @@ export class QuestsService {
       },
       relations: {
         skill: true,
-        userQuest: true,
+        userQuests: true,
         requirements: true,
         suggestions: true,
       },
@@ -50,7 +50,7 @@ export class QuestsService {
       },
       relations: {
         skill: true,
-        userQuest: true,
+        userQuests: true,
         requirements: true,
         suggestions: true,
       },

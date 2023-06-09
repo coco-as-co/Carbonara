@@ -1,5 +1,6 @@
 import { Max } from 'class-validator';
-import { Question } from 'src/domains/questions/question.entity';
+
+import { Question } from 'src/domains/questions/questions.entity';
 import {
   Column,
   CreateDateColumn,
@@ -35,6 +36,6 @@ export class Requirement {
   @ManyToOne(() => Quest, (quest) => quest.id)
   quest: Quest;
 
-  @OneToMany(() => Question, (question) => question.id)
+  @OneToMany(() => Question, (question) => question.requirement)
   questions: Question[];
 }

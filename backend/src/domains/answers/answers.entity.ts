@@ -1,14 +1,14 @@
+import { IsDate, Max } from 'class-validator';
+import { Question } from 'src/domains/questions/questions.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
-  UpdateDateColumn,
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
-import { IsDate, Max } from 'class-validator';
-import { Question } from 'src/domains/questions/questions.entity';
 @Entity()
 export class Answer {
   @PrimaryGeneratedColumn('uuid')
@@ -33,6 +33,6 @@ export class Answer {
   @IsDate()
   deletedAt: Date;
 
-  @ManyToOne(() => Question, (question) => question.id)
-  questions: Question;
+  @ManyToOne(() => Question, (question) => question.answers)
+  question: Question;
 }
