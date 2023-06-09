@@ -15,6 +15,9 @@ import { QuestionsModule } from './domains/questions/questions.module';
 import { CategoriesModule } from './domains/categories/categories.module';
 import { SurveysModule } from './domains/surveys/surveys.module';
 import { ChoicesModule } from './domains/choices/choices.module';
+import { AnswersModule } from './domains/answers/answers.module';
+import { BadgesModule } from './domains/badges/badges.module';
+import { SuggestionsModule } from './domains/suggestions/suggestions.module';
 @Module({
   imports: [
     DatabaseConfig,
@@ -31,6 +34,9 @@ import { ChoicesModule } from './domains/choices/choices.module';
     CategoriesModule,
     SurveysModule,
     ChoicesModule,
+    AnswersModule,
+    BadgesModule,
+    SuggestionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
