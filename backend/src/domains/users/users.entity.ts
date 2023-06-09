@@ -92,7 +92,7 @@ export class User {
   @IsDate()
   deletedAt: Date;
 
-  @OneToMany(() => UserQuest, (userQuest) => userQuest.users)
+  @OneToMany(() => UserQuest, (userQuest) => userQuest.user)
   userQuests: UserQuest[];
 
   @OneToMany(() => Vote, (vote) => vote.user)

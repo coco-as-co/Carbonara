@@ -34,5 +34,5 @@ export class Answer {
   deletedAt: Date;
 
   @ManyToOne(() => Question, (question) => question.id)
-  answers: Answer;
+  questions: Question;
 }
