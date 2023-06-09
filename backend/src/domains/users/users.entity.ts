@@ -21,7 +21,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { BoxeIdeas } from '../boxe_ideas/boxeIdeas.entity';
-import { Suggestion } from '../suggestions/suggestion.entity';
+import { Suggestion } from '../suggestions/suggestions.entity';
 export enum RoleUser {
   ADMIN = 'ADMIN',
   CLIENT = 'CLIENT',

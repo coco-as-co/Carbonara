@@ -1,7 +1,7 @@
 import { IsDate, Length } from 'class-validator';
 import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import { Requirement } from 'src/domains/requirements/requirements.entity';
-import { Suggestion } from 'src/domains/suggestions/suggestion.entity';
+import { Suggestion } from 'src/domains/suggestions/suggestions.entity';
 import {
   Column,
   CreateDateColumn,
