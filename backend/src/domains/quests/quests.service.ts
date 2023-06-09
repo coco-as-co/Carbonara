@@ -21,6 +21,13 @@ export class QuestsService {
         id,
         deletedAt: null,
       },
+      relations: {
+        requirement: {
+          questions: {
+            answers: true,
+          },
+        },
+      },
     });
     if (!data) throw new Error("La quête n'existe pas");
 

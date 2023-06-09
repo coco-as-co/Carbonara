@@ -48,8 +48,8 @@ export class Quest {
   @ManyToOne(() => Skill, (skill) => skill.quests)
   skill: Skill;
 
-  @ManyToOne(() => UserQuest, (userQuest) => userQuest.quests)
-  userQuest: UserQuest;
+  @OneToMany(() => UserQuest, (userQuest) => userQuest.quest)
+  userQuests: UserQuest[];
 
   @OneToMany(() => Requirement, (requirement) => requirement.quests)
   requirement: Requirement[];

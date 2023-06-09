@@ -8,6 +8,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  OneToOne,
 } from 'typeorm';
 import { Badge } from '../badges/badges.entity';
 import { Quest } from '../quests/quests.entity';
@@ -41,18 +42,15 @@ export class UserQuest {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @Column()
-  user: number;
-
   @ManyToOne(() => Badge, (badge) => badge.id)
   badge: Badge;
 
-  @OneToMany(() => User, (user) => user.id)
-  users: User[];
+  @ManyToOne(() => User, (user) => user.userQuests)
+  user: User;
 
-  @OneToMany(() => Quest, (quest) => quest.id)
-  quests: Quest[];
+  @ManyToOne(() => Quest, (quest) => quest.userQuests)
+  quest: Quest;
 
-  @OneToMany(() => Review, (review) => review.client)
-  reviews: Review[];
+  @OneToOne(() => Review, (review) => review.userQuest)
+  review: Review;
 }

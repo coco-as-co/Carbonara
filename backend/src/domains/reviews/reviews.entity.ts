@@ -9,6 +9,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  OneToOne,
+  JoinColumn,
 } from 'typeorm';
 
 @Entity()
@@ -38,7 +40,8 @@ export class Review {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @ManyToOne(() => UserQuest, (user) => user.reviews)
+  @OneToOne(() => UserQuest, (userQuest) => userQuest.review)
+  @JoinColumn()
   userQuest: UserQuest;
 
   @ManyToOne(() => User, (user) => user.reviews)

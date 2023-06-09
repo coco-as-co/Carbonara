@@ -35,6 +35,6 @@ export class Requirement {
   @ManyToOne(() => Quest, (quest) => quest.id)
   quests: Quest;
 
-  @OneToMany(() => Question, (question) => question.id)
-  questions: Question;
+  @OneToMany(() => Question, (question) => question.requirement)
+  questions: Question[];
 }
