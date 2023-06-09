@@ -13,7 +13,7 @@ import { Quest } from 'src/domains/quests/quests.entity';
 import { Requirement } from 'src/domains/requirements/requirements.entity';
 import { Review } from 'src/domains/reviews/reviews.entity';
 import { Skill } from 'src/domains/skills/skills.entity';
-import { Suggestion } from 'src/domains/suggestions/suggestion.entity';
+import { Suggestion } from 'src/domains/suggestions/suggestions.entity';
 import { Survey } from 'src/domains/surveys/surveys.entity';
 import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import { User } from 'src/domains/users/users.entity';
