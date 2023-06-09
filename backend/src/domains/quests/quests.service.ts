@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { Quest } from './quests.entity';
 import { CreateQuestDto, UpdateQuestDto } from './quests.dto';
+import { Quest } from './quests.entity';
 
 @Injectable()
 export class QuestsService {
@@ -12,7 +12,34 @@ export class QuestsService {
   ) {}
 
   async findAll(): Promise<Quest[]> {
-    return this.questsRepository.find();
+    return await this.questsRepository.find({
+      where: {
+        deletedAt: null,
+      },
+      relations: {
+        skill: true,
+        userQuest: true,
+        requirements: true,
+        suggestions: true,
+      },
+    });
+  }
+
+  async findAllBySkill(id: string): Promise<Quest[]> {
+    return await this.questsRepository.find({
+      where: {
+        deletedAt: null,
+        skill: {
+          id,
+        },
+      },
+      relations: {
+        skill: true,
+        userQuest: true,
+        requirements: true,
+        suggestions: true,
+      },
+    });
   }
 
   async findOne(id: string): Promise<Quest> {
@@ -22,11 +49,10 @@ export class QuestsService {
         deletedAt: null,
       },
       relations: {
-        requirement: {
-          questions: {
-            answers: true,
-          },
-        },
+        skill: true,
+        userQuest: true,
+        requirements: true,
+        suggestions: true,
       },
     });
     if (!data) throw new Error("La quête n'existe pas");

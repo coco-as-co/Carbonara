@@ -1,3 +1,5 @@
+import { Max } from 'class-validator';
+import { Question } from 'src/domains/questions/question.entity';
 import {
   Column,
   CreateDateColumn,
@@ -8,9 +10,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Max } from 'class-validator';
 import { Quest } from '../quests/quests.entity';
-import { Question } from 'src/domains/questions/questions.entity';
 @Entity()
 export class Requirement {
   @PrimaryGeneratedColumn('uuid')
@@ -33,8 +33,8 @@ export class Requirement {
   deletedAt: Date;
 
   @ManyToOne(() => Quest, (quest) => quest.id)
-  quests: Quest;
+  quest: Quest;
 
-  @OneToMany(() => Question, (question) => question.requirement)
+  @OneToMany(() => Question, (question) => question.id)
   questions: Question[];
 }

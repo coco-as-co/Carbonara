@@ -34,12 +34,12 @@ const routes = [
       },
       {
         name: "skill_view",
-        path: ":id",
+        path: ":skill_id",
         children: [
           {
             name: "skill",
             path: "",
-            component: () => import("@/views/Skill/Skill.vue"),
+            component: () => import("@/views/Skill/Create.vue"),
           },
           {
             name: "questsLayout",
@@ -52,7 +52,7 @@ const routes = [
               },
               {
                 name: "requirement",
-                path: ":id/:requirement",
+                path: ":quest_id/:requirement",
                 children: [
                   {
                     name: "requirement_admin",
@@ -72,8 +72,13 @@ const routes = [
                 component: () => import("@/views/Skill/Quest/Create.vue"),
               },
               {
+                name: "quest_update",
+                path: "update/:quest_id",
+                component: () => import("@/views/Skill/Quest/Create.vue"),
+              },
+              {
                 name: "quest_view",
-                path: ":id",
+                path: ":quest_id",
                 component: () => import("@/views/Skill/Quest/Quest.vue"),
               },
 

@@ -1,16 +1,16 @@
+import { IsDate, Length } from 'class-validator';
+import { Answer } from 'src/domains/answers/answers.entity';
+import { Requirement } from 'src/domains/requirements/requirements.entity';
 import {
-  PrimaryGeneratedColumn,
-  Entity,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
   DeleteDateColumn,
+  Entity,
   ManyToOne,
   OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
-import { IsDate, Length } from 'class-validator';
-import { Requirement } from 'src/domains/requirements/requirements.entity';
-import { Answer } from 'src/domains/answers/answers.entity';
 @Entity()
 export class Question {
   @PrimaryGeneratedColumn('uuid')
@@ -35,6 +35,6 @@ export class Question {
   @ManyToOne(() => Requirement, (requirement) => requirement.questions)
   requirement: Requirement;
 
-  @OneToMany(() => Answer, (answer) => answer.questions)
-  answers: Answer;
+  @OneToMany(() => Answer, (answer) => answer.id)
+  answers: Answer[];
 }

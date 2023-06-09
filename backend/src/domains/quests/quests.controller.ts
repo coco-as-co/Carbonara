@@ -8,8 +8,8 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { QuestsService } from './quests.service';
 import { CreateQuestDto, UpdateQuestDto } from './quests.dto';
+import { QuestsService } from './quests.service';
 
 @Controller('quests')
 export class QuestsController {
@@ -18,6 +18,11 @@ export class QuestsController {
   @Get()
   public async getAllQuests() {
     return await this.questsService.findAll();
+  }
+
+  @Get('bySkill/:id')
+  public async getAllQuestsBySkill(@Param('id', ParseUUIDPipe) id: string) {
+    return await this.questsService.findAllBySkill(id);
   }
 
   @Get(':id')

@@ -32,7 +32,6 @@ function get_headers() {
 
 export async function _getAll(path) {
   const headers = get_headers();
-  // headers["Content-Type"] = "application/ld-json";
   console.log(URL);
   const response = await axios.get(URL + path, { headers });
   console.log(response);
@@ -47,13 +46,11 @@ export async function _get(path) {
 
 export function _post(path, body) {
   const headers = get_headers();
-  headers["Content-Type"] = "application/json";
   return axios.post(URL + path, body, { headers });
 }
 
 export function _patch(path, body) {
   const headers = get_headers();
-  headers["Content-Type"] = "application/merge-patch+json";
   return axios.patch(URL + path, body, { headers });
 }
 

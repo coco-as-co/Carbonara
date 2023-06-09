@@ -1,7 +1,7 @@
 import { IsDate, Length } from 'class-validator';
-import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import { Requirement } from 'src/domains/requirements/requirements.entity';
 import { Suggestion } from 'src/domains/suggestions/suggestions.entity';
+import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import {
   Column,
   CreateDateColumn,
@@ -51,8 +51,8 @@ export class Quest {
   @OneToMany(() => UserQuest, (userQuest) => userQuest.quest)
   userQuests: UserQuest[];
 
-  @OneToMany(() => Requirement, (requirement) => requirement.quests)
-  requirement: Requirement[];
+  @OneToMany(() => Requirement, (requirement) => requirement.quest)
+  requirements: Requirement[];
 
   @OneToMany(() => Suggestion, (suggestion) => suggestion.quests)
   suggestions: Suggestion[];

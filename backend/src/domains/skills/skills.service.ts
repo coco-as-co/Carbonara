@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { Skill } from './skills.entity';
 import { CreateSkillDto, UpdateSkillDto } from './skills.dto';
+import { Skill } from './skills.entity';
 
 @Injectable()
 export class SkillsService {
@@ -21,6 +21,7 @@ export class SkillsService {
         id,
         deletedAt: null,
       },
+      relations: ['quests'],
     });
     if (!data) throw new Error("La compétence n'existe pas");
 

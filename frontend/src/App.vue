@@ -1,24 +1,8 @@
 <script setup>
-import { index, register } from "@/api/auth";
 import { useGetCurrentUser } from "@/services";
 import { onMounted, provide, reactive } from "vue";
 import Header from "./components/Header.vue";
 import Menu from "./components/Menu.vue";
-
-function actionClick() {
-  index().then((res) => {
-    console.log(res.data);
-  });
-
-  register({
-    "password": "$PasswordOf18Characters$",
-    "email": "coco10@mail.com",
-    "firstname": "coco",
-    "lastname": "coco"
-  }).then((res) => {
-    console.log(res.data);
-  });
-}
 
 const currentUser = reactive({ value: {} });
 provide("auth_user", currentUser);
