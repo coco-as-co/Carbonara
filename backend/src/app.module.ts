@@ -18,6 +18,7 @@ import { ChoicesModule } from './domains/choices/choices.module';
 import { AnswersModule } from './domains/answers/answers.module';
 import { BadgesModule } from './domains/badges/badges.module';
 import { SuggestionsModule } from './domains/suggestions/suggestions.module';
+import { VotesModule } from './domains/votes/votes.module';
 @Module({
   imports: [
     DatabaseConfig,
@@ -34,6 +35,7 @@ import { SuggestionsModule } from './domains/suggestions/suggestions.module';
     CategoriesModule,
     SurveysModule,
     ChoicesModule,
+    VotesModule,
     AnswersModule,
     BadgesModule,
     SuggestionsModule,

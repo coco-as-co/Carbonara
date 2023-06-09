@@ -29,6 +29,9 @@ export class ChoicesService {
         id,
         deletedAt: null,
       },
+      relations: {
+        votes: true,
+      },
     });
 
     if (!data) throw new NotFoundException();
