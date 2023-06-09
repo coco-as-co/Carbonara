@@ -52,7 +52,7 @@ const routes = [
               },
               {
                 name: "requirement",
-                path: ":quest_id/:requirement",
+                path: ":quest_id/requirements",
                 children: [
                   {
                     name: "requirement_admin",
@@ -61,7 +61,7 @@ const routes = [
                   },
                   {
                     name: "requirement_answer",
-                    path: "answer",
+                    path: ":requirement/answer",
                     component: () => import("@/views/Skill/Quest/Requirement/Question.vue"),
                   }
                 ]

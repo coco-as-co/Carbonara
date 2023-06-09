@@ -98,8 +98,11 @@ const list = {
             class="absolute w-[100px] top-[35px] bottom-[35px] left-[35px] right-[35px] bg-[#FDFDFD] shadow-[0_5px_55px_0_rgba(0,0,0,0.1)] rounded-[35px] py-[20px]">
             <div class="flex flex-col justify-between h-full items-center ">
                 <!-- Logo -->
-                <div>
-                    LOGO
+                <div class="mt-5 -mb-5">
+
+                    <img class="w-[60px] h-[60px]"
+                    src="/logo.svg"
+                    alt="">
                 </div>
 
                 <!-- Menu -->
