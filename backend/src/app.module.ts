@@ -13,6 +13,7 @@ import { UserQuestsModule } from './domains/user_quests/userQuest.module';
 import { RequirementsModule } from './domains/requirements/requirements.module';
 import { QuestionsModule } from './domains/questions/questions.module';
 import { CategoriesModule } from './domains/categories/categories.module';
+import { SurveysModule } from './domains/surveys/surveys.module';
 @Module({
   imports: [
     DatabaseConfig,
@@ -27,6 +28,7 @@ import { CategoriesModule } from './domains/categories/categories.module';
     RequirementsModule,
     QuestionsModule,
     CategoriesModule,
+    SurveysModule,
   ],
   controllers: [AppController],
   providers: [AppService],
