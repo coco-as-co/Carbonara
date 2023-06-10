@@ -3,13 +3,20 @@
 const props = defineProps(
     {
         options: Array
+        
+    },
+    {
+        label: String
+    },
+    {
+        value: String
     }
 )
 
 </script>
 
 <template>
-    <v-select :options="props.options">
+    <v-select :label="props.label" :options="props.options">
     </v-select>
 </template>
 

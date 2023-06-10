@@ -4,6 +4,7 @@ import { getCategories } from "@/api/categories";
 import Button from '@/components/Button.vue';
 import Card from '@/components/Card.vue';
 import Input from '@/components/Form/Input.vue';
+import Select from '@/components/Form/Select.vue';
 import { onMounted, reactive } from "vue";
 import { useRouter } from "vue-router";
 
@@ -15,6 +16,7 @@ const id = route.currentRoute.value.params.article_id ?? null;
 const _formValues = reactive({
     title: "",
     content: "",
+    categories: "",
 });
 
 const _formCategories = reactive({
@@ -26,7 +28,7 @@ onMounted(() => {
             console.log(res.data);
             _formValues.title = res.data.title;
             _formValues.content = res.data.content;
-            // _formValues.categories = res.data.categories;
+            _formValues.categories = res.data.categories;
         });
     }
     getCategories().then((res) => {
@@ -71,8 +73,8 @@ function handleRegister() {
                 </template>
                 <template v-slot:body>
                     <Input :label="'Title'" :placeholder="'Nom de l\'article'" name="article" v-model="_formValues.title" />
-                    <Input :label="'Content'" :placeholder="'Contenu de l\'article'" name="article" v-model="_formValues.content" />
-                    
+                    <Input :label="'Content'" :placeholder="'Contenu de l\'article'" name="article" v-model="_formValues.content" :type="'textarea'"/>
+                    <Select :label="'name'" :value="'id'" :placeholder="'Catégories de l\'article'" name="article" v-model="_formValues.categories" :options="_formCategories.categories" />
                 </template>
                 <template v-slot:footer>
                     <div></div>
