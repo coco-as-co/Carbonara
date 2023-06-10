@@ -199,6 +199,22 @@ const routes = [
       },
     ],
   },
+  {
+    name: "news",
+    path: "/articles",
+    children: [
+      {
+        name: "articles",
+        path: "",
+        component: () => import("@/views/Articles/List.vue"),
+      },
+      {
+        name: "article_create",
+        path: "create",
+        component: () => import("@/views/Articles/Create.vue"),
+      },
+    ]
+  }
 ];
 const router = createRouter({
   history: createWebHistory(),
