@@ -200,11 +200,11 @@ const routes = [
     ],
   },
   {
-    name: "news",
+    name: "articles",
     path: "/articles",
     children: [
       {
-        name: "articles",
+        name: "articlesList",
         path: "",
         component: () => import("@/views/Articles/List.vue"),
       },
@@ -212,6 +212,16 @@ const routes = [
         name: "article_create",
         path: "create",
         component: () => import("@/views/Articles/Create.vue"),
+      },
+      {
+        name: "article_update",
+        path: "update/:article_id",
+        component: () => import("@/views/Articles/Create.vue"),
+      },
+      {
+        name: "article_view",
+        path: ":article_id",
+        component: () => import("@/views/Articles/Article.vue"),
       },
     ]
   }
