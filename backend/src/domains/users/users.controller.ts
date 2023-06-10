@@ -21,6 +21,12 @@ export class UsersController {
     @Inject(REQUEST) private request: Request,
   ) {}
 
+  @UseGuards(JwtAuthGuard)
+  @Get('me')
+  public async me() {
+    return await this.usersService.findOne(this.request['user'].id);
+  }
+
   @Get()
   public findAll() {
     return this.usersService.findAll();
@@ -48,11 +54,5 @@ export class UsersController {
     console.log(this.request['user']);
 
     return this.request['user'];
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Get('me')
-  public async me() {
-    return await this.usersService.findOne(this.request['user'].id);
   }
 }

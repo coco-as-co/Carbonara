@@ -20,9 +20,9 @@ onMounted(async () => {
 
 <template>
   <div class="flex min-height h-full justify-between w-screen overflow-auto">
-    <Menu v-if="currentUser" />
+    <Menu v-if="currentUser.value" />
     <div class="relative flex flex-col w-full h-screen justify-between ms-[170px] me-[35px]">
-      <Header v-if="currentUser" />
+      <Header v-if="currentUser.value" />
       <main className="pt-[130px] pb-[35px]">
         <router-view />
       </main>

@@ -25,9 +25,7 @@ import { Suggestion } from '../suggestions/suggestions.entity';
 export enum RoleUser {
   ADMIN = 'ADMIN',
   CLIENT = 'CLIENT',
-  COMMERCIAL = 'COMMERCIAL',
   CONSULTANT = 'CONSULTANT',
-  RH = 'RH',
 }
 
 @Entity()
