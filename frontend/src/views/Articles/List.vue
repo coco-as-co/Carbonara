@@ -26,7 +26,7 @@ onMounted(() => {
                     <div></div>
                     <div>
                         <Button :variant="'green'" :href="`/articles/${article.id}`" class="me-3">Accéder</Button>
-                        <Button :variant="'blue'" :href="`/articles/${article.id}`">Modifier</Button>
+                        <Button :variant="'blue'" :href="`/articles/update/${article.id}`">Modifier</Button>
                     </div>
                 </template>
             </Card>
