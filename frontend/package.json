@@ -16,6 +16,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@lottiefiles/lottie-player": "^1.7.1",
     "axios": "^1.4.0",
+    "select2": "^4.1.0-rc.0",
     "vee-validate": "^4.9.6",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2"
