@@ -89,7 +89,10 @@ const list = {
         existing.settings,
     ],
 }
-
+const handleLogout = () => {
+    sessionStorage.removeItem("ara-app-token");
+    window.location.href = "/login";
+};
 </script>
 
 <template>
@@ -100,9 +103,7 @@ const list = {
                 <!-- Logo -->
                 <div class="mt-5 -mb-5">
 
-                    <img class="w-[60px] h-[60px]"
-                    src="/logo.svg"
-                    alt="">
+                    <img class="w-[60px] h-[60px]" src="/logo.svg" alt="">
                 </div>
 
                 <!-- Menu -->
@@ -111,7 +112,7 @@ const list = {
                 </div>
 
                 <!-- Log Out -->
-                <ItemMenu :path="'/logout'" :icon="'right-from-bracket'"
+                <ItemMenu :path="'/logout'" :onClick="handleLogout" :icon="'right-from-bracket'"
                     :class="'bg-[#E53F49] text-white hover:text-white'" />
             </div>
         </div>
