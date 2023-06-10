@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 193.47 214.49">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #282B2A;
+        stroke-miterlimit: 10;
+        stroke-width: 20px;
+      }
+    </style>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque 1">
+    <path class="cls-1" d="m183.47,146.48v-78.46c0-6.71-3.58-12.91-9.39-16.27L106.13,12.52c-5.81-3.36-12.97-3.36-18.79,0L19.39,51.75c-5.81,3.36-9.39,9.56-9.39,16.27v78.46c0,6.71,3.58,12.91,9.39,16.27l67.95,39.23c5.81,3.36,12.97,3.36,18.79,0l67.95-39.23c5.81-3.36,9.39-9.56,9.39-16.27Z"/>
+  </g>
+</svg>
