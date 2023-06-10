@@ -1,18 +1,31 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { REQUEST } from '@nestjs/core';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { BoxeIdeas } from './boxeIdeas.entity';
+import { UsersService } from '../users/users.service';
 import { CreateBoxeIdeaDto, UpdateBoxeIdeaDto } from './boxeIdeas.dto';
+import { BoxeIdeas } from './boxeIdeas.entity';
 
 @Injectable()
 export class BoxeIdeasService {
   constructor(
     @InjectRepository(BoxeIdeas)
     private readonly boxeIdeasRepository: Repository<BoxeIdeas>,
+    @Inject(UsersService)
+    private readonly usersService: UsersService,
+    @Inject(REQUEST) private request: Request,
   ) {}
 
   async findAll(): Promise<BoxeIdeas[]> {
-    return this.boxeIdeasRepository.find();
+    return this.boxeIdeasRepository.find({
+      where: {
+        deletedAt: null,
+      },
+      relations: {
+        user: true,
+      },
+      order: { createdAt: 'DESC' },
+    });
   }
 
   async findOne(id: string): Promise<BoxeIdeas> {
@@ -27,7 +40,8 @@ export class BoxeIdeasService {
   }
 
   async create(data: CreateBoxeIdeaDto): Promise<InsertResult> {
-    return this.boxeIdeasRepository.insert(data);
+    const user = await this.usersService.findOne(this.request['user'].id);
+    return this.boxeIdeasRepository.insert({ ...data, user });
   }
 
   async update(id: string, data: UpdateBoxeIdeaDto): Promise<UpdateResult> {

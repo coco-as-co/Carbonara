@@ -1,6 +1,4 @@
-import { IsString, IsUUID, MaxLength, ValidateNested } from 'class-validator';
-import { User } from '../users/users.entity';
-import { Type } from 'class-transformer';
+import { IsString, IsUUID, MaxLength } from 'class-validator';
 
 export class CreateBoxeIdeaDto {
   @IsString()
@@ -9,10 +7,6 @@ export class CreateBoxeIdeaDto {
   @IsString()
   @MaxLength(255)
   name: string;
-
-  @ValidateNested()
-  @Type(() => User)
-  user: User;
 }
 
 export class UpdateBoxeIdeaDto {
@@ -25,8 +19,4 @@ export class UpdateBoxeIdeaDto {
   @IsString()
   @MaxLength(255)
   name: string;
-
-  @ValidateNested()
-  @Type(() => User)
-  user: User;
 }

@@ -35,7 +35,7 @@ const existing = {
     chat: {
         title: 'Conversations',
         icon: 'comments',
-        path: '/chat'
+        path: '/boxe_ideas'
     },
     events: {
         title: 'Événements',

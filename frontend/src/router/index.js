@@ -89,6 +89,17 @@ const routes = [
     ]
   },
   {
+    name: "boxeIdeas",
+    path: "/boxe_ideas",
+    children: [
+      {
+        name: "boxeIdeas",
+        path: "",
+        component: () => import("@/views/BoxeIdea/List.vue"),
+      },
+    ]
+  },
+  {
     name: "users",
     path: "/users",
     children: [

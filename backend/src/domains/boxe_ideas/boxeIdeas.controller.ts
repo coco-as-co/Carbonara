@@ -7,9 +7,11 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
-import { BoxeIdeasService } from './boxeIdeas.service';
+import { JwtAuthGuard } from 'src/domains/auth/jwt-auth.guard';
 import { CreateBoxeIdeaDto, UpdateBoxeIdeaDto } from './boxeIdeas.dto';
+import { BoxeIdeasService } from './boxeIdeas.service';
 
 @Controller('boxeIdeas')
 export class BoxeIdeasController {
@@ -26,6 +28,7 @@ export class BoxeIdeasController {
     return await this.boxeIdeasService.findOne(id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   public async createBoxeIdeas(@Body() boxeIdeas: CreateBoxeIdeaDto) {
     return await this.boxeIdeasService.create(boxeIdeas);
