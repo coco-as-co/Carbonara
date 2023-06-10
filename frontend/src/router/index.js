@@ -117,14 +117,14 @@ const router = createRouter({
 
 router.beforeEach(async (to) => {
   const currentUser = await useGetCurrentUser().catch(() => null);
-
+  console.log(currentUser);
   if (to.meta.loggedIn === false && currentUser) {
     return {
       name: "home",
     };
   }
 
-  if (to.meta.loggedIn === true && !currentUser) {
+  if (to.meta.loggedIn === undefined && !currentUser) {
     sessionStorage.removeItem("ara-app-token");
     return {
       name: "login",

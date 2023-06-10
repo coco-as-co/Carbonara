@@ -1,8 +1,7 @@
 export const USER_STATUS = {
-  RH: "RH",
   CONSULTANT: "CONSULTANT",
   ADMIN: "ADMIN",
-  COMMERCIAL: "COMMERCIAL",
+  COMMERCIAL: "CLIENT",
 };
 
 export const BADGE_STATUS = {
