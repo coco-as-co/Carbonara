@@ -24,6 +24,7 @@ const props = defineProps({
     color: white;
     animation: pulse .5s normal;
     transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
 }
 
 .active:hover,

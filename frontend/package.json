@@ -16,9 +16,12 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@lottiefiles/lottie-player": "^1.7.1",
     "axios": "^1.4.0",
+    "select2": "^4.1.0-rc.0",
+    "v-select2-component": "^0.4.7",
     "vee-validate": "^4.9.6",
     "vue": "^3.2.47",
-    "vue-router": "^4.2.2"
+    "vue-router": "^4.2.2",
+    "vue-select": "^4.0.0-beta.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
