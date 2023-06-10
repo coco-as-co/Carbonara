@@ -64,7 +64,7 @@ function deleteArticle(id) {
             </template>
         </Card>
         <template v-if="articles.value">
-            <Card v-for="article in   articles.value  " :class="'col-span-1'">
+            <Card v-for="article in articles.value" :class="'col-span-1'">
                 <template v-slot:header>
                     <span class="text-sm font-light text-gray-800">{{ formatDate(article.createdAt) }}</span>
 
