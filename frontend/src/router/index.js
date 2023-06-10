@@ -108,6 +108,22 @@ const routes = [
         component: () => import("@/views/User/User.vue"),
       },
     ]
+  },
+  {
+    name: "news",
+    path: "/articles",
+    children: [
+      {
+        name: "articles",
+        path: "",
+        component: () => import("@/views/Articles/List.vue"),
+      },
+      {
+        name: "article_create",
+        path: "create",
+        component: () => import("@/views/Articles/Create.vue"),
+      },
+    ]
   }
 ];
 const router = createRouter({

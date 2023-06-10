@@ -23,9 +23,9 @@ const existing = {
         path: '/settings'
     },
     news: {
-        title: 'News',
+        title: 'Articles',
         icon: 'newspaper',
-        path: '/news'
+        path: '/articles'
     },
     reviews: {
         title: 'Avis clients',
