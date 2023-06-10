@@ -66,9 +66,10 @@ function deleteArticle(id) {
                     <div></div>
                     <div>
                         <Button :variant="'green'" :href="`/articles/${article.id}`" class="me-3">Accéder</Button>
-                        <Button v-if="currentUser.value.role == 'ADMIIN'" :variant="'blue'"
+                        <Button v-if="currentUser.value.role === 'ADMIN'" :variant="'blue'"
                             :href="`/articles/update/${article.id}`" class="me-3">Modifier</Button>
-                        <Button :variant="'red'" @click="deleteArticle(article.id)">Supprimer</Button>
+                        <Button v-if="currentUser.value.role === 'ADMIN'" :variant="'red'"
+                            @click="deleteArticle(article.id)">Supprimer</Button>
 
                     </div>
                 </template>
