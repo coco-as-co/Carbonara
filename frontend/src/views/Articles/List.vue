@@ -39,11 +39,20 @@ function deleteArticle(id) {
             </div>
         </Button>
         <Card :class="'col-span-1'">
+            <template v-slot:header>
+                <span class="text-sm font-light text-gray-800">05/06/2023</span>
+
+                <span
+                    class="flex gap-x-2 justify-center items-center  px-3 py-1 text-xs text-orange-800 uppercase bg-orange-200 rounded-full">
+                    <font-awesome-icon :icon="['fas', 'code']" />
+                    <p> CSS </p>
+                </span>
+            </template>
             <template v-slot:title>
                 Exemple d'Article Admin
             </template>
             <template v-slot:body>
-                Créer le 05/06/2023
+                Aujourd'hui nous allons vous parlez de
             </template>
             <template v-slot:footer>
                 <div></div>
@@ -56,18 +65,27 @@ function deleteArticle(id) {
         </Card>
         <template v-if="articles.value">
             <Card v-for="article in articles.value" :class="'col-span-1'">
+                <template v-slot:header>
+                    <span class="text-sm font-light text-gray-800">{{ formatDate(article.createdAt) }}</span>
+
+                    <span v-if="article.category !== null"
+                        class="flex gap-x-2 justify-center items-center px-3 py-1 text-xs text-orange-800 uppercase bg-orange-200 rounded-full">
+                        <font-awesome-icon :icon="['fas', 'code']" />
+                        <p> {{ article.category.name }}</p>
+                    </span>
+                </template>
                 <template v-slot:title>
                     {{ article.title }}
                 </template>
                 <template v-slot:body>
-                    Créer le {{ formatDate(article.createdAt) }}
+                    {{ article.content.replace(/^(.{110}[^\s]*).*/, "$1") }}
                 </template>
                 <template v-slot:footer>
                     <div></div>
-                    <div>
-                        <Button :variant="'green'" :href="`/articles/${article.id}`" class="me-3">Accéder</Button>
+                    <div class="flex gap-3">
+                        <Button :variant="'green'" :href="`/articles/${article.id}`">Accéder</Button>
                         <Button v-if="currentUser.value.role === 'ADMIN'" :variant="'blue'"
-                            :href="`/articles/update/${article.id}`" class="me-3">Modifier</Button>
+                            :href="`/articles/update/${article.id}`">Modifier</Button>
                         <Button v-if="currentUser.value.role === 'ADMIN'" :variant="'red'"
                             @click="deleteArticle(article.id)">Supprimer</Button>
 

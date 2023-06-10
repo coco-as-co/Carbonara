@@ -12,7 +12,11 @@ export class ArticlesService {
   ) {}
 
   async findAll(): Promise<Article[]> {
-    return this.ArticlesRepository.find();
+    return this.ArticlesRepository.find({
+      relations: {
+        category: true,
+      },
+    });
   }
 
   async findOne(id: string): Promise<Article> {
@@ -23,6 +27,7 @@ export class ArticlesService {
       },
       relations: {
         comments: true,
+        category: true,
       },
     });
     if (!data) throw new Error("La relation n'existe pas");
