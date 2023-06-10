@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from "./router";
 import './style.css';
+import VueSelect from "vue-select";
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -19,5 +20,6 @@ library.add(faGear, faHouse, faUser, faPeopleGroup, faCalendarWeek, faRightFromB
 
 createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)
+    .component('v-select', VueSelect)
     .use(router)
     .mount('#app')
