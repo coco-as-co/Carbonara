@@ -50,7 +50,7 @@ export class UsersService {
   async findOne(id: string): Promise<User> {
     const data = await this.usersRepository.findOneBy({ id });
     if (!data) throw new NotFoundException();
-
+    return data;
     switch (data.role) {
       case RoleUser.CLIENT:
       /* 
