@@ -4,8 +4,6 @@
     <div class="flex flex-col gap-y-3 p-[20px] bg-[#FDFDFD] shadow-[0_5px_55px_0_rgba(0,0,0,0.1)] rounded-[20px] h-fit">
         <div class="flex justify-between items-center" v-if="$slots.header">
             <slot name="header"></slot>
-            <!-- <span class="text-sm font-light text-gray-800">Courses and MOOCs</span>
-            <span class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">psychology</span> -->
         </div>
 
         <h1 class="text-lg font-semibold text-gray-800" v-if="$slots.title">
