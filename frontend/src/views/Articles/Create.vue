@@ -16,7 +16,7 @@ const id = route.currentRoute.value.params.article_id ?? null;
 const _formValues = reactive({
     title: "",
     content: "",
-    categories: "",
+    category: "",
 });
 
 const _formCategories = reactive({
@@ -28,7 +28,7 @@ onMounted(() => {
             console.log(res.data);
             _formValues.title = res.data.title;
             _formValues.content = res.data.content;
-            _formValues.categories = res.data.categories;
+            _formValues.category = res.data.categories;
         });
     }
     getCategories().then((res) => {
@@ -40,6 +40,7 @@ onMounted(() => {
 
 function handleRegister() {
     console.log(_formValues);
+    _formValues.category = _formValues.category.id
     if (id) {
         updateArticle(id, { ..._formValues })
             .then(({ data }) => {
@@ -73,8 +74,10 @@ function handleRegister() {
                 </template>
                 <template v-slot:body>
                     <Input :label="'Title'" :placeholder="'Nom de l\'article'" name="article" v-model="_formValues.title" />
-                    <Input :label="'Content'" :placeholder="'Contenu de l\'article'" name="article" v-model="_formValues.content" :type="'textarea'"/>
-                    <Select :label="'name'" :value="'id'" :placeholder="'Catégories de l\'article'" name="article" v-model="_formValues.categories" :options="_formCategories.categories" />
+                    <Input :label="'Content'" :placeholder="'Contenu de l\'article'" name="article"
+                        v-model="_formValues.content" :type="'textarea'" />
+                    <Select :label="'name'" :value="'id'" :placeholder="'Catégories de l\'article'" name="article"
+                        v-model="_formValues.category" :options="_formCategories.categories" />
                 </template>
                 <template v-slot:footer>
                     <div></div>
