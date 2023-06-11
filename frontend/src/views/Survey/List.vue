@@ -1,16 +1,7 @@
 <script setup>
-import { getSurveys } from "@/api/surveys";
-import { onMounted, reactive } from "vue";
 import Button from '../../components/Button.vue';
 import Card from '../../components/Card.vue';
 
-const surveys = reactive([]);
-
-onMounted(() => {
-  getSurveys().then((res) => {
-    surveys.value = res.data;
-  });
-});
 
 </script>
 
@@ -23,20 +14,18 @@ onMounted(() => {
         Ajouter un sondage
       </div>
     </Button>
-    <template v-if="surveys.value">
-      <Card v-for="survey in surveys.value" :class="'col-span-1'">
-        <template v-slot:title>
-          {{ survey.title }}
-        </template>
-        <template v-slot:footer>
-          <div></div>
-          <div>
-            <Button :variant="'green'" :href="`/surveys/${survey.id}`" class="me-3">Accéder</Button>
-            <Button :variant="'blue'" :href="`/surveys/${survey.id}`">Modifier</Button>
-          </div>
-        </template>
-      </Card>
-    </template>
+    <Card :class="'col-span-1'">
+      <template v-slot:title>
+        Quel autre formations souhaiteriez-vous suivre ?
+      </template>
+      <template v-slot:footer>
+        <div></div>
+        <div>
+          <Button :variant="'green'" :href="'surveys/view/1'" class="me-3">Accéder</Button>
+          <Button :variant="'blue'" :href="`#`">Modifier</Button>
+        </div>
+      </template>
+    </Card>
 
   </div>
 </template>
