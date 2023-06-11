@@ -8,12 +8,17 @@ const props = defineProps({
 
 <template>
     <router-link
-        class="w-[60px] h-[60px] shadow-[0_5px_15px_0_rgba(0,0,0,0.1)] rounded-[15px] text-[#8c8c8c] hover:text-[#E53F49] hover:scale-110 active:scale-[0.95] transition-all duration-200"
+        class=" z-[1000] has-tooltip w-[60px] h-[60px] shadow-[0_5px_15px_0_rgba(0,0,0,0.1)] rounded-[15px] text-[#8c8c8c] hover:text-[#E53F49] hover:scale-110 active:scale-[0.95] transition-all duration-200"
         :to="props.path" active-class="active" exact-active-class="exact-active">
         <!-- Icon -->
         <div class="flex justify-center items-center w-full h-full">
             <font-awesome-icon :icon="['fa', props.icon ?? '']" class="text-lg" />
         </div>
+        <div
+            class="tooltip whitespace-nowrap left-[90px] top-[50%] translate-y-[-50%] z-[1000] bg-white px-4 py-2 shadow-[0_5px_15px_0_rgba(0,0,0,0.1)] rounded-[15px] text-sm text-gray-600">
+            {{
+                props.title ??
+                'TODO' }}</div>
     </router-link>
 </template>
 
