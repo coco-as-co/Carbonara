@@ -15,8 +15,8 @@ const routes = [
       {
         path: "",
         component: () => import("@/views/Dashboard.vue"),
-      }
-    ]
+      },
+    ],
   },
   {
     name: "skills",
@@ -57,14 +57,16 @@ const routes = [
                   {
                     name: "requirement_admin",
                     path: "create",
-                    component: () => import("@/views/Skill/Quest/Requirement/Create.vue"),
+                    component: () =>
+                      import("@/views/Skill/Quest/Requirement/Create.vue"),
                   },
                   {
                     name: "requirement_answer",
                     path: ":requirement/answer",
-                    component: () => import("@/views/Skill/Quest/Requirement/Question.vue"),
-                  }
-                ]
+                    component: () =>
+                      import("@/views/Skill/Quest/Requirement/Question.vue"),
+                  },
+                ],
               },
               {
                 name: "quest_create",
@@ -81,12 +83,11 @@ const routes = [
                 path: ":quest_id",
                 component: () => import("@/views/Skill/Quest/Quest.vue"),
               },
-
-            ]
+            ],
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
   {
     name: "boxeIdeas",
@@ -97,7 +98,7 @@ const routes = [
         path: "",
         component: () => import("@/views/BoxeIdea/List.vue"),
       },
-    ]
+    ],
   },
   {
     name: "users",
@@ -118,13 +119,34 @@ const routes = [
         path: ":id",
         component: () => import("@/views/User/Profile.vue"),
       },
-    ]
+    ],
   },
   {
     name: "settings",
     path: "/settings",
-    component: () => import("@/views/Settings.vue")
-  }
+    component: () => import("@/views/Settings.vue"),
+  },
+  {
+    name: "reviews",
+    path: "/reviews",
+    children: [
+      {
+        name: "reviews",
+        path: "",
+        component: () => import("@/views/Review/List.vue"),
+      },
+      {
+        name: "review_create",
+        path: "create",
+        component: () => import("@/views/Review/Create.vue"),
+      },
+      {
+        name: "review_view",
+        path: ":id",
+        component: () => import("@/views/Review/Profile.vue"),
+      },
+    ],
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),
