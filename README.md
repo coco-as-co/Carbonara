@@ -2,8 +2,9 @@
 
 ## Lancer le projet
 
-1. docker compose build --pull --no-cache
-1. docker compose up -d
+1. Créer les fichiers `/backend/.env` et `/frontend/.env`
+2. docker compose build --pull --no-cache
+3. docker compose up -d
 
 
 ## Les fonctionnalités inclus
