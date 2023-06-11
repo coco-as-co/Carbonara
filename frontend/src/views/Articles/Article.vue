@@ -19,6 +19,13 @@ onMounted(() => {
         });
     }
 });
+
+function formatDate(date) {
+    const d = new Date(date);
+    const day = d.getDay() < 10 ? `0${d.getDay()}` : d.getDay();
+    const month = d.getMonth() < 10 ? `0${d.getMonth()}` : d.getMonth();
+    return `${day}/${month}/${d.getFullYear()}`;
+}
 </script>
 
 <template>
@@ -37,16 +44,18 @@ onMounted(() => {
             </template>
             <template v-slot:body>
                 <div v-if="article.data.comments">
-                    <Card v-for="comment in article.data.comments">
-                        <template v-slot:header>
-                            <p>{{ comment.user.firstname }}</p>
-                            <p>{{ comment.createdAt }}</p>
-                        </template>
-                        <template v-slot:body>
-                            <h2>{{ comment.title }}</h2>
-                            <p>{{ comment.content }}</p>
-                        </template>
-                    </Card>
+                    <div class="flex flex-col gap-5">
+                        <Card v-for="comment in article.data.comments">
+                            <template v-slot:header>
+                                <p>{{ comment.user.firstname }}</p>
+                                <p>{{ formatDate(comment.createdAt) }}</p>
+                            </template>
+                            <template v-slot:body>
+                                <h2 class="mb-3">{{ comment.title }}</h2>
+                                <p>{{ comment.content }}</p>
+                            </template>
+                        </Card>
+                    </div>
                 </div>
             </template>
         </Card>

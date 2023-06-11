@@ -85,7 +85,7 @@ export default {
                     Bullet List
                 </button>
             </floating-menu>
-            <editor-content :editor="editor" :class="' focus:outline-none'" />
+            <editor-content :editor="editor" :class="'focus:outline-none'" />
         </div>
     </div>
 </template>  
@@ -94,6 +94,7 @@ export default {
 .ProseMirror {
     outline: none;
     padding: 0.6rem;
+    min-height: 300px;
 }
 
 .ProseMirror *+* {
