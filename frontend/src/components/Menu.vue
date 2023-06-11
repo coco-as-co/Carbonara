@@ -8,7 +8,7 @@ const existing = {
         path: '/'
     },
     user: {
-        title: 'Users',
+        title: 'Utilisateurs',
         icon: 'people-group',
         path: '/users'
     },
@@ -23,9 +23,9 @@ const existing = {
         path: '/settings'
     },
     news: {
-        title: 'News',
+        title: 'Articles',
         icon: 'newspaper',
-        path: '/news'
+        path: '/articles'
     },
     reviews: {
         title: 'Avis clients',
@@ -33,7 +33,7 @@ const existing = {
         path: '/reviews'
     },
     chat: {
-        title: 'Conversations',
+        title: 'Boîte à idées',
         icon: 'comments',
         path: '/boxe_ideas'
     },
@@ -108,11 +108,11 @@ const handleLogout = () => {
 
                 <!-- Menu -->
                 <div class="flex flex-col gap-5">
-                    <ItemMenu v-for="l in list.ADMIN" :path="l.path" :icon="l.icon" />
+                    <ItemMenu v-for="l in list.ADMIN" :path="l.path" :icon="l.icon" :title="l.title" />
                 </div>
 
                 <!-- Log Out -->
-                <ItemMenu :path="'/logout'" :onClick="handleLogout" :icon="'right-from-bracket'"
+                <ItemMenu :path="'/logout'" :onClick="handleLogout" :icon="'right-from-bracket'" :title="'Se déconnecter'"
                     :class="'bg-[#E53F49] text-white hover:text-white'" />
             </div>
         </div>

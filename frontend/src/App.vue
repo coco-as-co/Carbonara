@@ -19,11 +19,11 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex min-height h-full justify-between w-screen overflow-auto">
-    <Menu v-if="currentUser.value" />
+  <div class="flex overflow-auto justify-between w-screen h-full min-height">
+    <Menu v-if="currentUser.value" :class="'z-50'" />
     <div class="relative flex flex-col w-full h-screen justify-between ms-[170px] me-[35px]">
-      <Header v-if="currentUser.value" />
-      <main className="pt-[130px] pb-[35px]">
+      <Header v-if="currentUser.value" :class="'z-20'" />
+      <main :class="'pt-[130px] pb-[35px] z-10'">
         <router-view />
       </main>
     </div>
