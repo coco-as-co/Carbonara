@@ -1,5 +1,6 @@
 import { CreateArticlesDto, UpdateArticlesDto } from './articles.dto';
 import { ArticlesService } from './articles.service';
+import { JwtAuthGuard } from 'src/domains/auth/jwt-auth.guard';
 import {
   Body,
   Controller,
@@ -9,11 +10,12 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 
 @Controller('articles')
 export class ArticlesController {
-  constructor(private readonly articlesService: ArticlesService) {}
+  constructor(private readonly articlesService: ArticlesService) { }
 
   @Get()
   public async getAllArticle() {
@@ -25,6 +27,7 @@ export class ArticlesController {
     return await this.articlesService.findOne(id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   public async createArticle(@Body() quests: CreateArticlesDto) {
     return await this.articlesService.create(quests);
