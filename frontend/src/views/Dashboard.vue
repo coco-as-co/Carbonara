@@ -8,40 +8,106 @@ const currentUser = inject("auth_user");
 </script>
 
 <template>
-    <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
-        <Card :class="'col-span-4'">
+    <div class="grid grid-cols-2 grid-flow-row-dense gap-8 xl:grid-cols-3 2xl:grid-cols-4">
+        <Card :class="'col-span-4 bg-[#282B2A]'">
             <template v-slot:title>
-                Bienvenue, {{ currentUser.value.firstname }}
+                <div class="text-white">
+                    Bienvenue, {{ currentUser.value.firstname }}
+                </div>
             </template>
             <template v-slot:body>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+
+                <div class="text-[#FDFDFD]">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+                </div>
             </template>
         </Card>
-        <Card class="bg-indigo-300">
+
+        <!-- SUGGESTED QUESTS -->
+        <Card :class="'col-span-2'">
             <template v-slot:title>
-                Anniversaires <font-awesome-icon :icon="['fas', 'cake-candles']" bounce />
+                Notre suggestion de quêtes
             </template>
             <template v-slot:body>
-                <Card class="bg-indigo-200">
-                    <template v-slot:body>
-                        <ul>
-                            <li>John Doe</li>
-                            <li>Jane Smith</li>
-                            <li>Michael Johnson</li>
-                            <li>Emily Davis</li>
-                        </ul>
-                    </template>
-                </Card>
+                <div class="grid grid-cols-2 gap-5">
+
+                    <Card>
+                        <template v-slot:header>
+                            <span class="text-sm font-light text-gray-800">Quête</span>
+                            <div>
+                                <span class="px-3 py-1 text-xs text-amber-800 uppercase bg-amber-200 rounded-full me-3">Niv.
+                                    1</span>
+                                <span
+                                    class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
+                            </div>
+                        </template>
+                        <template v-slot:title>
+                            Le premier donjon de ReactJS
+                        </template>
+                        <template v-slot:body>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+                        </template>
+                        <template v-slot:footer>
+                            <p class="text-xs font-semibold text-gray-600">12 prérequis</p>
+                            <div class="px-4 py-2 text-sm uppercase rounded-[10px] text-[#00BB7E] bg-[#d9f6ec]">
+
+                                <font-awesome-icon :icon="['fas', 'check']" class="text-green-500" />
+                            </div>
+                        </template>
+                    </Card>
+                    <Card>
+                        <template v-slot:header>
+                            <span class="text-sm font-light text-gray-800">Quête</span>
+                            <div>
+                                <span class="px-3 py-1 text-xs text-amber-800 uppercase bg-amber-200 rounded-full me-3">Niv.
+                                    2</span>
+                                <span
+                                    class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
+                            </div>
+                        </template>
+                        <template v-slot:title>
+                            Le second donjon de ReactJS
+                        </template>
+                        <template v-slot:body>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+                        </template>
+                        <template v-slot:footer>
+                            <p class="text-xs font-semibold text-gray-600">12 prérequis</p>
+                            <Button :variant="'blue'" :href="'/skills/2/quests/2'">Commencer la quête</Button>
+                        </template>
+                    </Card>
+                    <Card>
+                        <template v-slot:header>
+                            <span class="text-sm font-light text-gray-800">Quête</span>
+                            <div>
+                                <span class="px-3 py-1 text-xs text-amber-800 uppercase bg-amber-200 rounded-full me-3">Niv.
+                                    3</span>
+                                <span
+                                    class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
+                            </div>
+                        </template>
+                        <template v-slot:title>
+                            Le second donjon de ReactJS
+                        </template>
+                        <template v-slot:body>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+                        </template>
+                        <template v-slot:footer>
+                            <p class="text-xs font-semibold text-gray-600">12 prérequis</p>
+                            <Button :variant="'blue'" :href="'/skills/2/quests/3'">Commencer la quête</Button>
+                        </template>
+                    </Card>
+                </div>
             </template>
         </Card>
 
         <!-- EVENT -->
-        <Card>
+        <Card :class="'col-span-1'">
             <template v-slot:title>
                 Les événements à venir
             </template>
             <template v-slot:body>
-                <div class="grid grid-cols-1 row-span-2 gap-5">
+                <div class="grid grid-cols-1 gap-5">
 
                     <Card>
                         <template v-slot:title>
@@ -92,107 +158,162 @@ const currentUser = inject("auth_user");
                 </div>
             </template>
         </Card>
+
+
+        <Card class="bg-amber-200">
+            <template v-slot:title>
+                <div class="text-amber-800">
+                    Les anniversaires <font-awesome-icon :icon="['fas', 'cake-candles']" bounce />
+                </div>
+            </template>
+            <template v-slot:body>
+                <div class="grid grid-cols-1 gap-5">
+                    <Card>
+                        <template v-slot:body>
+                            <div class="flex gap-x-5 items-center">
+                                <div>
+                                    <h2 class="text-xl border-e-2 pe-5">
+                                        19 Juin
+                                    </h2>
+                                </div>
+                                <div>
+                                    <p class="text-lg text-gray-600">Nicolas P.</p>
+                                </div>
+                            </div>
+                        </template>
+                    </Card>
+                    <Card>
+                        <template v-slot:body>
+                            <div class="flex gap-x-5 items-center">
+                                <div>
+                                    <h2 class="text-xl border-e-2 pe-5">
+                                        19 Juin
+                                    </h2>
+                                </div>
+                                <div>
+                                    <p class="text-lg text-gray-600">Nicolas P.</p>
+                                </div>
+                            </div>
+                        </template>
+                    </Card>
+                    <Card>
+                        <template v-slot:body>
+                            <div class="flex gap-x-5 items-center">
+                                <div>
+                                    <h2 class="text-xl border-e-2 pe-5">
+                                        19 Juin
+                                    </h2>
+                                </div>
+                                <div>
+                                    <p class="text-lg text-gray-600">Nicolas P.</p>
+                                </div>
+                            </div>
+                        </template>
+                    </Card>
+                    <Card>
+                        <template v-slot:body>
+                            <div class="flex gap-x-5 items-center">
+                                <div>
+                                    <h2 class="text-xl border-e-2 pe-5">
+                                        19 Juin
+                                    </h2>
+                                </div>
+                                <div>
+                                    <p class="text-lg text-gray-600">Nicolas P.</p>
+                                </div>
+                            </div>
+                        </template>
+                    </Card>
+                    <Card>
+                        <template v-slot:body>
+                            <div class="flex gap-x-5 items-center">
+                                <div>
+                                    <h2 class="text-xl border-e-2 pe-5">
+                                        19 Juin
+                                    </h2>
+                                </div>
+                                <div>
+                                    <p class="text-lg text-gray-600">Nicolas P.</p>
+                                </div>
+                            </div>
+                        </template>
+                    </Card>
+                    <Card>
+                        <template v-slot:body>
+                            <div class="flex gap-x-5 items-center">
+                                <div>
+                                    <h2 class="text-xl border-e-2 pe-5">
+                                        19 Juin
+                                    </h2>
+                                </div>
+                                <div>
+                                    <p class="text-lg text-gray-600">Nicolas P.</p>
+                                </div>
+                            </div>
+                        </template>
+                    </Card>
+                    <Card>
+                        <template v-slot:body>
+                            <div class="flex gap-x-5 items-center">
+                                <div>
+                                    <h2 class="text-xl border-e-2 pe-5">
+                                        19 Juin
+                                    </h2>
+                                </div>
+                                <div>
+                                    <p class="text-lg text-gray-600">Nicolas P.</p>
+                                </div>
+                            </div>
+                        </template>
+                    </Card>
+                </div>
+            </template>
+        </Card>
+
         <!-- ARTICLE -->
-        <Card>
+        <Card :class="'col-span-3'">
             <template v-slot:title>
-                FAQ
+                Liens importants
             </template>
             <template v-slot:body>
-                <ul>
-                    <li>Comment faire une demande de congés ?</li>
-                    <li>Que faire en cas de problème informatique ?</li>
-                    <li>Où se trouve la salle RH ?</li>
-                </ul>
-            </template>
-        </Card>
+                <div class="grid grid-cols-3 gap-5">
+                    <Card>
+                        <template v-slot:title>
+                            FAQ
+                        </template>
+                        <template v-slot:body>
+                            <ul>
+                                <li>Comment faire une demande de congés ?</li>
+                                <li>Que faire en cas de problème informatique ?</li>
+                                <li>Où se trouve la salle RH ?</li>
+                            </ul>
+                        </template>
+                    </Card>
 
-        <Card>
-            <template v-slot:title>
-                Guide utilisateur pour les nouveaux employés
-            </template>
-            <template v-slot:body>
-                Notre guide utilisateur complet est conçu spécialement pour les nouveaux employés. Il
-                fournit toutes les informations essentielles dont vous avez besoin pour vous familiariser rapidement
-                avec
-                notre entreprise, nos processus et nos politiques.
-            </template>
-        </Card>
+                    <Card>
+                        <template v-slot:title>
+                            Guide utilisateur pour les nouveaux employés
+                        </template>
+                        <template v-slot:body>
+                            Notre guide utilisateur complet est conçu spécialement pour les nouveaux employés. Il
+                            fournit toutes les informations essentielles dont vous avez besoin pour vous familiariser
+                            rapidement
+                            avec
+                            notre entreprise, nos processus et nos politiques.
+                        </template>
+                    </Card>
 
-        <Card>
-            <template v-slot:title>
-                Les contacts utiles
-            </template>
-            <template v-slot:body>
-                Découvrez notre répertoire des contacts utiles, une ressource essentielle pour faciliter vos
-                interactions
-                professionnelles.
-            </template>
-        </Card>
-
-        <br>
-
-        <!-- SUGGESTED QUESTS -->
-        <Card>
-            <template v-slot:header>
-                <span class="text-sm font-light text-gray-800">Quête</span>
-                <div>
-                    <span class="px-3 py-1 text-xs text-amber-800 uppercase bg-amber-200 rounded-full me-3">Niv.
-                        1</span>
-                    <span class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
+                    <Card>
+                        <template v-slot:title>
+                            Les contacts utiles
+                        </template>
+                        <template v-slot:body>
+                            Découvrez notre répertoire des contacts utiles, une ressource essentielle pour faciliter vos
+                            interactions
+                            professionnelles.
+                        </template>
+                    </Card>
                 </div>
-            </template>
-            <template v-slot:title>
-                Le premier donjon de ReactJS
-            </template>
-            <template v-slot:body>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-            </template>
-            <template v-slot:footer>
-                <p class="text-xs text-gray-600 font-semibold">12 prérequis</p>
-                <div class="px-4 py-2 text-sm uppercase rounded-[10px] text-[#00BB7E] bg-[#d9f6ec]">
-
-                    <font-awesome-icon :icon="['fas', 'check']" class="text-green-500" />
-                </div>
-            </template>
-        </Card>
-        <Card>
-            <template v-slot:header>
-                <span class="text-sm font-light text-gray-800">Quête</span>
-                <div>
-                    <span class="px-3 py-1 text-xs text-amber-800 uppercase bg-amber-200 rounded-full me-3">Niv.
-                        2</span>
-                    <span class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
-                </div>
-            </template>
-            <template v-slot:title>
-                Le second donjon de ReactJS
-            </template>
-            <template v-slot:body>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-            </template>
-            <template v-slot:footer>
-                <p class="text-xs text-gray-600 font-semibold">12 prérequis</p>
-                <Button :variant="'blue'" :href="'/skills/2/quests/2'">Commencer la quête</Button>
-            </template>
-        </Card>
-        <Card>
-            <template v-slot:header>
-                <span class="text-sm font-light text-gray-800">Quête</span>
-                <div>
-                    <span class="px-3 py-1 text-xs text-amber-800 uppercase bg-amber-200 rounded-full me-3">Niv.
-                        3</span>
-                    <span class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full">ReactJS</span>
-                </div>
-            </template>
-            <template v-slot:title>
-                Le second donjon de ReactJS
-            </template>
-            <template v-slot:body>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-            </template>
-            <template v-slot:footer>
-                <p class="text-xs text-gray-600 font-semibold">12 prérequis</p>
-                <Button :variant="'blue'" :href="'/skills/2/quests/3'">Commencer la quête</Button>
             </template>
         </Card>
     </div>
