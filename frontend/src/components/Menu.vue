@@ -38,9 +38,9 @@ const existing = {
         path: '/boxe_ideas'
     },
     events: {
-        title: 'Événements',
-        icon: 'calendar-week',
-        path: '/events'
+        title: 'Sondages',
+        icon: 'bullhorn',
+        path: '/surveys'
     },
 }
 

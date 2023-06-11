@@ -124,6 +124,32 @@ const routes = [
     name: "settings",
     path: "/settings",
     component: () => import("@/views/Settings.vue")
+  },
+  {
+    name: "surveys",
+    path: "/surveys",
+    children: [
+      {
+        name: "surveys",
+        path: "",
+        component: () => import("@/views/Survey/List.vue"),
+      },
+      {
+        name: "survey_create",
+        path: "create",
+        component: () => import("@/views/Survey/Create.vue"),
+      },
+      {
+        name: "survey_update",
+        path: ":survey_id",
+        component: () => import("@/views/Survey/Create.vue"),
+      },
+      {
+        name: "survey_view",
+        path: ":survey_id",
+        component: () => import("@/views/Survey/View.vue"),
+      },
+    ]
   }
 ];
 const router = createRouter({

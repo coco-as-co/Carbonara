@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Choice } from './choices.entity';
+import { Survey } from 'src/domains/surveys/surveys.entity';
+import { SurveysService } from 'src/domains/surveys/surveys.service';
 import { ChoicesController } from './choices.controller';
+import { Choice } from './choices.entity';
 import { ChoicesService } from './choices.service';
-import { Survey } from '../surveys/surveys.entity';
-import { SurveysService } from '../surveys/surveys.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Choice, Survey])],
