@@ -1,7 +1,42 @@
-# Vue 3 + Vite
+# CARBONARA
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Lancer le projet : 
 
-## Recommended IDE Setup
+ ```sh
+ docker compose build --pull --no-cache 
+ ```
+ ```sh
+docker compose up 
+ ```
+ ```sh
+ docker compose exec frontend npm i (optionnel) 
+ ```
+ ```sh
+docker compose exec backend npm run seed 
+ ```
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Compte Consutlant : 
+- consultant@hotmail.fr
+- password
+
+Compte Admin : 
+ - admin@hotmail.fr
+ - password
+
+## Fonctionnalitées
+
+- Dashboard pour retrouver toutes les infos utiles 
+- Liste des utilisateurs (un filtre par compétences sera ajouté)
+- Les skills et les quests qui apportent des XP et qui sont pour le moment des QCM qui sont créés par les tech lead
+- Les reviews des clients
+- Les articles rédigés par les RH et les commerciaux qui peuvent être commenté par les consultants
+- Dans le futur, un module météo qui permet de recenser le bien-être des consultants chez les clients
+- Un chat instantané implémentant l’API SLACK
+- Les rappels d’anniversaire des consultants
+
+## Groupe 
+
+- Océane Renoux : https://github.com/Eliwena
+- Coraline Esedji : https://github.com/coco-as-co
+- Maxime Marchand : https://github.com/ThePiotrow
+- Jeremy Jumpertz : https://github.com/jumpertz
