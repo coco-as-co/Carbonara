@@ -110,15 +110,15 @@ const handleLogout = () => {
 
                 <!-- Menu -->
                 <div class="flex flex-col gap-5" v-if="currentUser.value.role === 'ADMIN'">
-                    <ItemMenu v-for="l in list.ADMIN" :path="l.path" :icon="l.icon" />
+                    <ItemMenu v-for="l in list.ADMIN" :path="l.path" :icon="l.icon" :title="l.title" />
                 </div>
 
                 <div class="flex flex-col gap-5" v-if="currentUser.value.role === 'CONSULTANT'">
-                    <ItemMenu v-for="l in list.CONSULTANT" :path="l.path" :icon="l.icon" />
+                    <ItemMenu v-for="l in list.CONSULTANT" :path="l.path" :icon="l.icon" :title="l.title" />
                 </div>
 
                 <div class="flex flex-col gap-5" v-if="currentUser.value.role === 'RH'">
-                    <ItemMenu v-for="l in list.RH" :path="l.path" :icon="l.icon" />
+                    <ItemMenu v-for="l in list.RH" :path="l.path" :icon="l.icon" :title="l.title" />
                 </div>
 
                 <!-- Log Out -->
