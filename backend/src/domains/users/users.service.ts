@@ -11,7 +11,7 @@ export class UsersService {
     @InjectRepository(User)
     private readonly usersRepository: Repository<User>,
     @Inject(REQUEST) private request: Request,
-  ) {}
+  ) { }
 
   async findAll(): Promise<User[]> {
     const user = this.request['user'] as User;

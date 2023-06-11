@@ -10,9 +10,59 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import { faBriefcase, faBullhorn, faCakeCandles, faCalendarWeek, faCheck, faChevronLeft, faComments, faEye, faFaceSmileBeam, faFolderOpen, faGear, faGraduationCap, faHouse, faNewspaper, faPeopleGroup, faPhone, faPlus, faRightFromBracket, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+    faBold,
+    faBriefcase,
+    faBullhorn,
+    faCakeCandles,
+    faCalendarWeek,
+    faCheck,
+    faChevronLeft,
+    faCode,
+    faComments,
+    faEye,
+    faFaceSmileBeam,
+    faFolderOpen,
+    faGear,
+    faGraduationCap,
+    faHouse,
+    faItalic,
+    faNewspaper,
+    faPeopleGroup,
+    faPhone,
+    faPlus,
+    faRightFromBracket,
+    faStar,
+    faUnderline,
+    faUser
+} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faGear, faHouse, faUser, faPeopleGroup, faCalendarWeek, faRightFromBracket, faComments, faFaceSmileBeam, faNewspaper, faGraduationCap, faFolderOpen, faCheck, faPlus, faChevronLeft, faEye, faPhone, faBriefcase, faStar, faCakeCandles, faBullhorn)
+library.add(
+    faBold,
+    faBriefcase,
+    faBullhorn,
+    faCakeCandles,
+    faCalendarWeek,
+    faCheck,
+    faChevronLeft,
+    faCode,
+    faComments,
+    faEye,
+    faFaceSmileBeam,
+    faFolderOpen,
+    faGear,
+    faGraduationCap,
+    faHouse,
+    faItalic,
+    faNewspaper,
+    faPeopleGroup,
+    faPhone,
+    faPlus,
+    faRightFromBracket,
+    faStar,
+    faUnderline,
+    faUser
+);
 
 createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)

@@ -7,6 +7,7 @@ import {
 } from 'class-validator';
 import { Category } from '../categories/categories.entity';
 import { Type } from 'class-transformer';
+import { User } from '../users/users.entity';
 
 export class CreateArticlesDto {
   @IsString()
@@ -15,6 +16,9 @@ export class CreateArticlesDto {
 
   @IsString()
   content: string;
+
+  @IsUUID()
+  user: User
 
   @IsUUID()
   @ValidateNested()

@@ -173,6 +173,32 @@ const routes = [
       },
     ],
   },
+  {
+    name: "articles",
+    path: "/articles",
+    children: [
+      {
+        name: "articlesList",
+        path: "",
+        component: () => import("@/views/Articles/List.vue"),
+      },
+      {
+        name: "article_create",
+        path: "create",
+        component: () => import("@/views/Articles/Create.vue"),
+      },
+      {
+        name: "article_update",
+        path: "update/:article_id",
+        component: () => import("@/views/Articles/Create.vue"),
+      },
+      {
+        name: "article_view",
+        path: ":article_id",
+        component: () => import("@/views/Articles/Article.vue"),
+      },
+    ]
+  }
 ];
 const router = createRouter({
   history: createWebHistory(),
