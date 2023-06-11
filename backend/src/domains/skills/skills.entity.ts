@@ -1,5 +1,5 @@
 import { IsDate, Length } from 'class-validator';
-import { Quest } from 'src/domains/quests/quests.entity';
+import { Quest } from '../quests/quests.entity';
 import {
   Column,
   CreateDateColumn,

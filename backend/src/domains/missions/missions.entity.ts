@@ -1,5 +1,5 @@
 import { Max } from 'class-validator';
-import { User } from 'src/domains/users/users.entity';
+import { User } from '../users/users.entity';
 import {
   Column,
   CreateDateColumn,

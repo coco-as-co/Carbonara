@@ -8,7 +8,7 @@ import {
   DeleteDateColumn,
   ManyToOne,
 } from 'typeorm';
-import { User } from 'src/domains/users/users.entity';
+import { User } from '../users/users.entity';
 
 @Entity()
 export class BoxeIdeas {

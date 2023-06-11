@@ -1,7 +1,8 @@
 import { IsDate, Length } from 'class-validator';
-import { Category } from 'src/domains/categories/categories.entity';
-import { Comment } from 'src/domains/comments/comments.entity';
+import { Category } from '../categories/categories.entity';
+import { Comment } from '../comments/comments.entity';
 import { User } from '../users/users.entity';
+
 import {
   Column,
   CreateDateColumn,

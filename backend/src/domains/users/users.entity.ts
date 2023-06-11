@@ -7,10 +7,10 @@ import {
   Length,
   Max,
 } from 'class-validator';
-import { Mission } from 'src/domains/missions/missions.entity';
-import { Review } from 'src/domains/reviews/reviews.entity';
-import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
-import { Vote } from 'src/domains/votes/votes.entity';
+import { Mission } from '../missions/missions.entity';
+import { Review } from '../reviews/reviews.entity';
+import { UserQuest } from '../user_quests/userQuest.entity';
+import { Vote } from '../votes/votes.entity';
 import { Comment } from '../comments/comments.entity';
 import {
   Column,

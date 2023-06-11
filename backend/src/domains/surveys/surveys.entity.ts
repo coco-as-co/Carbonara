@@ -1,5 +1,5 @@
 import { Max } from 'class-validator';
-import { Choice } from 'src/domains/choices/choices.entity';
+import { Choice } from '../choices/choices.entity';
 import {
   Column,
   CreateDateColumn,

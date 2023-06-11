@@ -1,5 +1,5 @@
-import { Choice } from 'src/domains/choices/choices.entity';
-import { User } from 'src/domains/users/users.entity';
+import { Choice } from '../choices/choices.entity';
+import { User } from '../users/users.entity';
 import {
   Column,
   CreateDateColumn,
