@@ -1,17 +1,22 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  NotFoundException,
+  forwardRef,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Choice } from './choices.entity';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { CreateChoicesDto, UpdateChoicesDto } from './choices.dto';
-import { SurveysService } from '../surveys/surveys.service';
 import { Survey } from '../surveys/surveys.entity';
+import { SurveysService } from '../surveys/surveys.service';
+import { CreateChoicesDto, UpdateChoicesDto } from './choices.dto';
+import { Choice } from './choices.entity';
 
 @Injectable()
 export class ChoicesService {
   constructor(
     @InjectRepository(Choice)
     private readonly choicesRepository: Repository<Choice>,
-    @Inject(SurveysService)
+    @Inject(forwardRef(() => SurveysService))
     private readonly surveysService: SurveysService,
   ) {}
 

@@ -41,12 +41,14 @@ export class BoxeIdeasService {
 
   async create(data: CreateBoxeIdeaDto): Promise<InsertResult> {
     const user = await this.usersService.findOne(this.request['user'].id);
-    await this.usersService.update({
+
+    const a = await this.usersService.update({
       id: user.id,
       body: {
         experience: user.experience + 5,
       },
     });
+
     return this.boxeIdeasRepository.insert({ ...data, user });
   }
 

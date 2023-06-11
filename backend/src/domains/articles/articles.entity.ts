@@ -1,6 +1,8 @@
 import { IsDate, Length } from 'class-validator';
 import { Category } from '../categories/categories.entity';
 import { Comment } from '../comments/comments.entity';
+import { User } from '../users/users.entity';
+
 import {
   Column,
   CreateDateColumn,
@@ -42,4 +44,7 @@ export class Article {
 
   @OneToMany(() => Comment, (comment) => comment.article)
   comments: Comment[];
+
+  @ManyToOne(() => User, (user) => user.articles)
+  user: User;
 }

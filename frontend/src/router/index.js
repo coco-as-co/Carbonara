@@ -15,8 +15,8 @@ const routes = [
       {
         path: "",
         component: () => import("@/views/Dashboard.vue"),
-      }
-    ]
+      },
+    ],
   },
   {
     name: "skills",
@@ -57,14 +57,16 @@ const routes = [
                   {
                     name: "requirement_admin",
                     path: "create",
-                    component: () => import("@/views/Skill/Quest/Requirement/Create.vue"),
+                    component: () =>
+                      import("@/views/Skill/Quest/Requirement/Create.vue"),
                   },
                   {
                     name: "requirement_answer",
                     path: ":requirement/answer",
-                    component: () => import("@/views/Skill/Quest/Requirement/Question.vue"),
-                  }
-                ]
+                    component: () =>
+                      import("@/views/Skill/Quest/Requirement/Question.vue"),
+                  },
+                ],
               },
               {
                 name: "quest_create",
@@ -81,12 +83,11 @@ const routes = [
                 path: ":quest_id",
                 component: () => import("@/views/Skill/Quest/Quest.vue"),
               },
-
-            ]
+            ],
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
   {
     name: "boxeIdeas",
@@ -97,7 +98,7 @@ const routes = [
         path: "",
         component: () => import("@/views/BoxeIdea/List.vue"),
       },
-    ]
+    ],
   },
   {
     name: "users",
@@ -118,12 +119,85 @@ const routes = [
         path: ":id",
         component: () => import("@/views/User/Profile.vue"),
       },
-    ]
+    ],
   },
   {
     name: "settings",
     path: "/settings",
     component: () => import("@/views/Settings.vue")
+  },
+  {
+    name: "surveys",
+    path: "/surveys",
+    children: [
+      {
+        name: "surveys",
+        path: "",
+        component: () => import("@/views/Survey/List.vue"),
+      },
+      {
+        name: "survey_create",
+        path: "create",
+        component: () => import("@/views/Survey/Create.vue"),
+      },
+      {
+        name: "survey_update",
+        path: ":survey_id",
+        component: () => import("@/views/Survey/Create.vue"),
+      },
+      {
+        name: "survey_view",
+        path: "view/:survey_id",
+        component: () => import("@/views/Survey/View.vue"),
+      },
+    ]
+  },
+  {
+    name: "reviews",
+    path: "/reviews",
+    children: [
+      {
+        name: "reviews",
+        path: "",
+        component: () => import("@/views/Review/List.vue"),
+      },
+      {
+        name: "review_create",
+        path: "create",
+        component: () => import("@/views/Review/Create.vue"),
+      },
+      {
+        name: "review_view",
+        path: ":id",
+        component: () => import("@/views/Review/Profile.vue"),
+      },
+    ],
+  },
+  {
+    name: "articles",
+    path: "/articles",
+    children: [
+      {
+        name: "articlesList",
+        path: "",
+        component: () => import("@/views/Articles/List.vue"),
+      },
+      {
+        name: "article_create",
+        path: "create",
+        component: () => import("@/views/Articles/Create.vue"),
+      },
+      {
+        name: "article_update",
+        path: "update/:article_id",
+        component: () => import("@/views/Articles/Create.vue"),
+      },
+      {
+        name: "article_view",
+        path: ":article_id",
+        component: () => import("@/views/Articles/Article.vue"),
+      },
+    ]
   }
 ];
 const router = createRouter({

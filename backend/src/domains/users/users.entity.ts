@@ -11,6 +11,7 @@ import { Mission } from '../missions/missions.entity';
 import { Review } from '../reviews/reviews.entity';
 import { UserQuest } from '../user_quests/userQuest.entity';
 import { Vote } from '../votes/votes.entity';
+import { Comment } from '../comments/comments.entity';
 import {
   Column,
   CreateDateColumn,
@@ -22,6 +23,7 @@ import {
 } from 'typeorm';
 import { BoxeIdeas } from '../boxe_ideas/boxeIdeas.entity';
 import { Suggestion } from '../suggestions/suggestions.entity';
+import { Article } from '../articles/articles.entity';
 export enum RoleUser {
   ADMIN = 'ADMIN',
   CLIENT = 'CLIENT',
@@ -110,4 +112,10 @@ export class User {
 
   @OneToMany(() => Review, (review) => review.client)
   reviews: Review[];
+
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comments: Comment[];
+
+  @OneToMany(() => Article, (article) => article.user)
+  articles: Article[];
 }

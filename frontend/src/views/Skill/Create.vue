@@ -25,7 +25,6 @@ onMounted(() => {
 
 
 function handleRegister() {
-    console.log(_formValues);
     if (id) {
         updateSkill(id, { ..._formValues })
             .then(({ data }) => {
