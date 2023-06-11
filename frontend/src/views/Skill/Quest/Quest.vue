@@ -61,7 +61,7 @@ onMounted(() => {
             </template>
             <template v-slot:footer>
                 <p class="text-xs text-gray-600 font-semibold">12 questions</p>
-                <Button :variant="'blue'" :href="'/skills/2/quests/2/2/answer'">Commencer la quête</Button>
+                <Button :variant="'blue'" :href="'/skills/2/quests/2/requirements/2/answer'">Commencer la quête</Button>
             </template>
         </Card>
         <Card>

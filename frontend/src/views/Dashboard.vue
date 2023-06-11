@@ -266,7 +266,7 @@ const currentUser = inject("auth_user");
                             <template v-slot:body>
                                 <div class="flex gap-x-5 items-center">
                                     <div>
-                                        <h2 class="text-xl border-e-2 pe-5">
+                                        <h2 class="text-xl border-e-2 pe-5 font-bold ">
                                             19 Juin
                                         </h2>
                                     </div>
@@ -280,12 +280,12 @@ const currentUser = inject("auth_user");
                             <template v-slot:body>
                                 <div class="flex gap-x-5 items-center">
                                     <div>
-                                        <h2 class="text-xl border-e-2 pe-5">
-                                            19 Juin
+                                        <h2 class="text-xl border-e-2 pe-5 font-bold ">
+                                            04 Septembre
                                         </h2>
                                     </div>
                                     <div>
-                                        <p class="text-lg text-gray-600">Nicolas P.</p>
+                                        <p class="text-lg text-gray-600">Paul S.</p>
                                     </div>
                                 </div>
                             </template>
@@ -294,12 +294,12 @@ const currentUser = inject("auth_user");
                             <template v-slot:body>
                                 <div class="flex gap-x-5 items-center">
                                     <div>
-                                        <h2 class="text-xl border-e-2 pe-5">
-                                            19 Juin
+                                        <h2 class="text-xl border-e-2 pe-5 font-bold ">
+                                            02 Janvier
                                         </h2>
                                     </div>
                                     <div>
-                                        <p class="text-lg text-gray-600">Nicolas P.</p>
+                                        <p class="text-lg text-gray-600">Faye V.</p>
                                     </div>
                                 </div>
                             </template>
@@ -308,54 +308,12 @@ const currentUser = inject("auth_user");
                             <template v-slot:body>
                                 <div class="flex gap-x-5 items-center">
                                     <div>
-                                        <h2 class="text-xl border-e-2 pe-5">
-                                            19 Juin
+                                        <h2 class="text-xl border-e-2 pe-5 font-bold ">
+                                            20 Février
                                         </h2>
                                     </div>
                                     <div>
-                                        <p class="text-lg text-gray-600">Nicolas P.</p>
-                                    </div>
-                                </div>
-                            </template>
-                        </Card>
-                        <Card>
-                            <template v-slot:body>
-                                <div class="flex gap-x-5 items-center">
-                                    <div>
-                                        <h2 class="text-xl border-e-2 pe-5">
-                                            19 Juin
-                                        </h2>
-                                    </div>
-                                    <div>
-                                        <p class="text-lg text-gray-600">Nicolas P.</p>
-                                    </div>
-                                </div>
-                            </template>
-                        </Card>
-                        <Card>
-                            <template v-slot:body>
-                                <div class="flex gap-x-5 items-center">
-                                    <div>
-                                        <h2 class="text-xl border-e-2 pe-5">
-                                            19 Juin
-                                        </h2>
-                                    </div>
-                                    <div>
-                                        <p class="text-lg text-gray-600">Nicolas P.</p>
-                                    </div>
-                                </div>
-                            </template>
-                        </Card>
-                        <Card>
-                            <template v-slot:body>
-                                <div class="flex gap-x-5 items-center">
-                                    <div>
-                                        <h2 class="text-xl border-e-2 pe-5">
-                                            19 Juin
-                                        </h2>
-                                    </div>
-                                    <div>
-                                        <p class="text-lg text-gray-600">Nicolas P.</p>
+                                        <p class="text-lg text-gray-600">Laura F.</p>
                                     </div>
                                 </div>
                             </template>
