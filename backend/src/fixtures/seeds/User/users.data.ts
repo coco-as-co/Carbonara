@@ -66,7 +66,7 @@ export const consultant: DeepPartial<User>[] = [
     phone: faker.phone.number('##########'),
     birthday: faker.date.past(),
     password: bcrypt.hashSync('password', 10),
-    role: RoleUser.ADMIN,
+    role: RoleUser.CONSULTANT,
     createdAt: new Date(),
     updatedAt: new Date(),
     deletedAt: null,
