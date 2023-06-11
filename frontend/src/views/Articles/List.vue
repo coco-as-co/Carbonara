@@ -93,6 +93,5 @@ function deleteArticle(id) {
                 </template>
             </Card>
         </template>
-
     </div>
 </template>
