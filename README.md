@@ -16,9 +16,11 @@
 - Les rappels d’anniversaire des consultants
 
 ## Les fonctionnalités à venir
-- Un chat instantané implémentant l’API SLACK
+- Un chat instantané implémentant l’API Slack
 - Un module météo qui permet de recenser le bien-être des consultants chez les clients
 - Filtre sur les compétences des consultant
+- Un système de quêtes et skills plus complet
+- L'ajout de commentaires sur les articles 
 
 
 ## Equipe
