@@ -9,7 +9,7 @@ const currentUser = inject("auth_user");
 
 <template>
     <div class="grid grid-cols-2 grid-flow-row-dense gap-8 xl:grid-cols-3 2xl:grid-cols-4">
-        <Card :class="'col-span-4 bg-[#222]'">
+        <Card :class="'col-span-4 bg-[#282B2A]'">
             <template v-slot:title>
                 <div class="text-white">
                     Bienvenue, {{ currentUser.value.firstname }}
