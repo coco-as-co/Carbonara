@@ -31,9 +31,9 @@ function deleteArticle(id) {
 </script>
 
 <template>
-    <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
+    <div class="grid grid-cols-2 gap-8 xl:grid-cols-3 2xl:grid-cols-4">
         <Button :href="'/articles/create'" :class="'rounded-[20px] shadow-[0_5px_55px_0_rgba(0,0,0,0.1)]'">
-            <div class="flex items-center justify-center h-full gap-x-4">
+            <div class="flex gap-x-4 justify-center items-center h-full">
                 <font-awesome-icon :icon="['fas', 'plus']" class="text-2xl" />
                 Ajouter un article
             </div>
@@ -43,7 +43,7 @@ function deleteArticle(id) {
                 <span class="text-sm font-light text-gray-800">05/06/2023</span>
 
                 <span
-                    class="flex gap-x-2 justify-center items-center  px-3 py-1 text-xs text-orange-800 uppercase bg-orange-200 rounded-full">
+                    class="flex gap-x-2 justify-center items-center px-3 py-1 text-xs text-orange-800 uppercase bg-orange-200 rounded-full">
                     <font-awesome-icon :icon="['fas', 'code']" />
                     <p> CSS </p>
                 </span>
@@ -64,7 +64,7 @@ function deleteArticle(id) {
             </template>
         </Card>
         <template v-if="articles.value">
-            <Card v-for="article in articles.value" :class="'col-span-1'">
+            <Card v-for="article in   articles.value  " :class="'col-span-1'">
                 <template v-slot:header>
                     <span class="text-sm font-light text-gray-800">{{ formatDate(article.createdAt) }}</span>
 
@@ -78,7 +78,7 @@ function deleteArticle(id) {
                     {{ article.title }}
                 </template>
                 <template v-slot:body>
-                    {{ article.content.replace(/^(.{110}[^\s]*).*/, "$1") }}
+                    <div v-html="article.content.replace(/^(.{110}[^\s]*).*/, '$1')"></div>
                 </template>
                 <template v-slot:footer>
                     <div></div>

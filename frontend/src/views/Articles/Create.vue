@@ -7,6 +7,7 @@ import Input from '@/components/Form/Input.vue';
 import Select from '@/components/Form/Select.vue';
 import { onMounted, reactive } from "vue";
 import { useRouter } from "vue-router";
+import WYSIWYG from "@/components/WYSIWYG.vue";
 
 
 const route = useRouter();
@@ -74,14 +75,21 @@ function handleRegister() {
                 </template>
                 <template v-slot:body>
                     <Input :label="'Title'" :placeholder="'Nom de l\'article'" name="article" v-model="_formValues.title" />
-                    <Input :label="'Content'" :placeholder="'Contenu de l\'article'" name="article"
-                        v-model="_formValues.content" :type="'textarea'" />
-                    <Select :label="'name'" :value="'id'" :placeholder="'Catégories de l\'article'" name="article"
-                        v-model="_formValues.category" :options="_formCategories.categories" />
+                    <div>
+                        <label for="content" name="content" class="block text-sm text-gray-500">Content</label>
+                        <WYSIWYG v-model="_formValues.content" />
+                    </div>
+
+                    <div>
+                        <label for="article" class="block mt-3 text-sm text-gray-500">Catégorie</label>
+                        <Select :label="'name'" :value="'id'" :placeholder="'Catégories de l\'article'" name="article"
+                            v-model="_formValues.category" :options="_formCategories.categories" />
+                    </div>
+
                 </template>
                 <template v-slot:footer>
                     <div></div>
-                    <Button>
+                    <Button :type="'submit'">
                         <span v-if="!id">Ajouter</span>
                         <span v-else>Modifier</span>
                     </Button>

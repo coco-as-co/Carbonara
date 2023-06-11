@@ -1,8 +1,6 @@
 <script setup>
 import Button from '../../components/Button.vue';
 import Card from '../../components/Card.vue';
-import Select from '../../components/Form/Select.vue';
-
 
 </script>
 

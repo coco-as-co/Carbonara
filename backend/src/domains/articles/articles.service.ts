@@ -9,7 +9,7 @@ export class ArticlesService {
   constructor(
     @InjectRepository(Article)
     private readonly ArticlesRepository: Repository<Article>,
-  ) {}
+  ) { }
 
   async findAll(): Promise<Article[]> {
     return this.ArticlesRepository.find({
@@ -30,6 +30,7 @@ export class ArticlesService {
           user: true,
         },
         category: true,
+        user: true
       },
     });
     if (!data) throw new Error("La relation n'existe pas");
