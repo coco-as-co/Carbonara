@@ -1,5 +1,5 @@
 import { IsDate, Length } from 'class-validator';
-import { Article } from 'src/domains/articles/articles.entity';
+import { Article } from '../articles/articles.entity';
 import {
   Column,
   CreateDateColumn,

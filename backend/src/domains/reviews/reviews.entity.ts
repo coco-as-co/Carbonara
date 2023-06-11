@@ -1,6 +1,6 @@
 import { Max } from 'class-validator';
-import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
-import { User } from 'src/domains/users/users.entity';
+import { UserQuest } from '../user_quests/userQuest.entity';
+import { User } from '../users/users.entity';
 import {
   Column,
   CreateDateColumn,

@@ -1,5 +1,5 @@
-import { Survey } from 'src/domains/surveys/surveys.entity';
-import { Vote } from 'src/domains/votes/votes.entity';
+import { Survey } from '../surveys/surveys.entity';
+import { Vote } from '../votes/votes.entity';
 import {
   Column,
   CreateDateColumn,

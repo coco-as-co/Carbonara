@@ -1,5 +1,5 @@
 import { IsDate, Max } from 'class-validator';
-import { Question } from 'src/domains/questions/questions.entity';
+import { Question } from '../questions/questions.entity';
 import {
   Column,
   CreateDateColumn,

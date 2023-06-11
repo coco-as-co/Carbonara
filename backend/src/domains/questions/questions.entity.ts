@@ -1,6 +1,6 @@
 import { IsDate, Length } from 'class-validator';
-import { Answer } from 'src/domains/answers/answers.entity';
-import { Requirement } from 'src/domains/requirements/requirements.entity';
+import { Answer } from '../answers/answers.entity';
+import { Requirement } from '../requirements/requirements.entity';
 import {
   Column,
   CreateDateColumn,
