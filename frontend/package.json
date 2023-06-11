@@ -17,6 +17,8 @@
     "@lottiefiles/lottie-player": "^1.7.1",
     "@tiptap/extension-bold": "^2.0.3",
     "@tiptap/extension-floating-menu": "^2.0.3",
+    "@tiptap/extension-italic": "^2.0.3",
+    "@tiptap/extension-underline": "^2.0.3",
     "@tiptap/pm": "^2.0.3",
     "@tiptap/starter-kit": "^2.0.3",
     "@tiptap/vue-3": "^2.0.3",

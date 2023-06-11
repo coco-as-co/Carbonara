@@ -2,6 +2,8 @@
 import { useEditor, EditorContent, FloatingMenu } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import Bold from '@tiptap/extension-bold'
+import Italic from '@tiptap/extension-italic'
+import Underline from '@tiptap/extension-underline'
 
 import { Editor } from '@tiptap/vue-3'
 
@@ -9,7 +11,9 @@ export default {
     components: {
         EditorContent,
         Bold,
-        FloatingMenu
+        FloatingMenu,
+        Italic,
+        Underline,
     },
 
     props: {
@@ -38,7 +42,9 @@ export default {
             extensions: [
                 StarterKit,
                 Bold,
-                FloatingMenu
+                FloatingMenu,
+                Italic,
+                Underline
             ],
             content: this.modelValue,
             onUpdate: ({ editor }) => {
@@ -65,6 +71,16 @@ export default {
                     class="box-border px-2 py-1 bg-white rounded-none border-none transition-all duration-150 outline-none active:outline-none"
                     :class="{ 'text-[#5B98D2]': editor.isActive('bold') }">
                     <font-awesome-icon :icon="['fas', 'bold']" />
+                </button>
+                <button @click.prevent="editor.chain().focus().toggleItalic().run()"
+                    class="box-border px-2 py-1 bg-white rounded-none border-none transition-all duration-150 outline-none active:outline-none"
+                    :class="{ 'text-[#5B98D2]': editor.isActive('italic') }">
+                    <font-awesome-icon :icon="['fas', 'italic']" />
+                </button>
+                <button @click.prevent="editor.chain().focus().toggleUnderline().run()"
+                    class="box-border px-2 py-1 bg-white rounded-none border-none transition-all duration-150 outline-none active:outline-none"
+                    :class="{ 'text-[#5B98D2]': editor.isActive('underline') }">
+                    <font-awesome-icon :icon="['fas', 'underline']" />
                 </button>
 
             </div>
