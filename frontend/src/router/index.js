@@ -146,7 +146,7 @@ const routes = [
       },
       {
         name: "survey_view",
-        path: ":survey_id",
+        path: "view/:survey_id",
         component: () => import("@/views/Survey/View.vue"),
       },
     ]

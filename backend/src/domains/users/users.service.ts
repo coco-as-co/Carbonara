@@ -80,17 +80,7 @@ export class UsersService {
   }
 
   async update(data: UpdateUserDtoWrapper): Promise<UpdateResult> {
-    const user = await this.findOne(data.id);
-
-    if (user.role !== data.body.role && data.body.role !== RoleUser.ADMIN)
-      throw new NotFoundException();
-
-    if (
-      this.request['user'].role !== RoleUser.ADMIN &&
-      this.request['user'].id !== data.id
-    )
-      throw new NotFoundException();
-
-    return this.usersRepository.update(data.id, data);
+    await this.findOne(data.id);
+    return this.usersRepository.update(data.id, data.body);
   }
 }

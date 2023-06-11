@@ -1,5 +1,7 @@
 <script setup>
+import { inject } from "vue";
 import ItemMenu from './ItemMenu.vue';
+const currentUser = inject("auth_user");
 
 const existing = {
     home: {
@@ -107,8 +109,16 @@ const handleLogout = () => {
                 </div>
 
                 <!-- Menu -->
-                <div class="flex flex-col gap-5">
-                    <ItemMenu v-for="l in list.ADMIN" :path="l.path" :icon="l.icon" :title="l.title" />
+                <div class="flex flex-col gap-5" v-if="currentUser.value.role === 'ADMIN'">
+                    <ItemMenu v-for="l in list.ADMIN" :path="l.path" :icon="l.icon" />
+                </div>
+
+                <div class="flex flex-col gap-5" v-if="currentUser.value.role === 'CONSULTANT'">
+                    <ItemMenu v-for="l in list.CONSULTANT" :path="l.path" :icon="l.icon" />
+                </div>
+
+                <div class="flex flex-col gap-5" v-if="currentUser.value.role === 'RH'">
+                    <ItemMenu v-for="l in list.RH" :path="l.path" :icon="l.icon" />
                 </div>
 
                 <!-- Log Out -->

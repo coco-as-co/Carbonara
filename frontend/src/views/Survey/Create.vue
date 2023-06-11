@@ -1,15 +1,13 @@
 <script setup>
-import { createSurvey, getOneSurvey, updateSurvey } from "@/api/surveys";
+import { createSurvey, updateSurvey } from "@/api/surveys";
 import Button from '@/components/Button.vue';
 import Card from '@/components/Card.vue';
 import Input from '@/components/Form/Input.vue';
-import { onMounted, reactive } from "vue";
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
 
 
 const route = useRouter();
-const id = route.currentRoute.value.params.survey_id ?? null;
-console.log(id);
 
 const _formValues = reactive({
   title: "",
@@ -21,25 +19,6 @@ const _formValues = reactive({
   choices4: "",
   choices5: "",
   choices6: "",
-});
-
-onMounted(() => {
-  if (id) {
-    getOneSurvey(id).then((res) => {
-      _formValues.title = res.data.title;
-      _formValues.content = res.data.content;
-      _formValues.endedAt = res.data.endedAt;
-      for (let i = 0; i < res.data.choices.length; i++) {
-        const name = `choices${i + 1}`;
-        _formValues[name] = res.data.choices[i].content;
-      }
-    });
-  }
-});
-
-onComputed(() => {
-  // date format 
-  const date = new Date(_formValues.endedAt);
 });
 
 function handleRegister() {
@@ -67,7 +46,7 @@ function handleRegister() {
 
 <template>
   <div class="flex justify-center">
-    <form @submit.prevent="handleRegister">
+    <form>
       <Card :class="'w-96'">
         <template v-slot:title>
           <span v-if="!id">Ajout d'un sondage</span>
