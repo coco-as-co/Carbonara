@@ -46,7 +46,7 @@ export class ArticlesService {
 
   async create(data: CreateArticlesDto): Promise<InsertResult> {
     const user = await this.usersService.findOne(this.request['user'].id);
-    return this.ArticlesRepository.insert(data);
+    return this.ArticlesRepository.insert({ ...data, user });
   }
 
   async update(id: string, data: UpdateArticlesDto): Promise<UpdateResult> {
