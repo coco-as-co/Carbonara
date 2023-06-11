@@ -178,6 +178,27 @@ const routes = [
       },
     ]
   },
+  {
+    name: "reviews",
+    path: "/reviews",
+    children: [
+      {
+        name: "reviews",
+        path: "",
+        component: () => import("@/views/Review/List.vue"),
+      },
+      {
+        name: "review_create",
+        path: "create",
+        component: () => import("@/views/Review/Create.vue"),
+      },
+      {
+        name: "review_view",
+        path: ":id",
+        component: () => import("@/views/Review/Review.vue"),
+      },
+    ],
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),
