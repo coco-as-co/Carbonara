@@ -1,6 +1,6 @@
 import { DeepPartial } from 'typeorm';
 import { faker } from '@faker-js/faker';
-import { Skill } from 'src/domains/skills/skills.entity';
+import { Skill } from '../../../domains/skills/skills.entity';
 
 export const skills: DeepPartial<Skill>[] = Array.from({ length: 10 }).map(
     (_, i) => {
