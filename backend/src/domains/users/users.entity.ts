@@ -11,6 +11,7 @@ import { Mission } from 'src/domains/missions/missions.entity';
 import { Review } from 'src/domains/reviews/reviews.entity';
 import { UserQuest } from 'src/domains/user_quests/userQuest.entity';
 import { Vote } from 'src/domains/votes/votes.entity';
+import { Comment } from '../comments/comments.entity';
 import {
   Column,
   CreateDateColumn,
@@ -110,4 +111,7 @@ export class User {
 
   @OneToMany(() => Review, (review) => review.client)
   reviews: Review[];
+
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comments: Comment[];
 }

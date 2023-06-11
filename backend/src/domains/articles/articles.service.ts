@@ -26,7 +26,9 @@ export class ArticlesService {
         deletedAt: null,
       },
       relations: {
-        comments: true,
+        comments: {
+          user: true,
+        },
         category: true,
       },
     });

@@ -10,6 +10,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { User } from '../users/users.entity';
 
 @Entity()
 export class Comment {
@@ -38,4 +39,8 @@ export class Comment {
   @ManyToOne(() => Article, (articles) => articles.comments)
   @JoinColumn()
   article: Article;
+
+  @ManyToOne(() => User, (user) => user.comments)
+  @JoinColumn()
+  user: User;
 }

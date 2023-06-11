@@ -9,6 +9,9 @@ export class CreateCommentsDto {
 
   @IsUUID()
   articleId: string;
+
+  @IsUUID()
+  userId: string;
 }
 
 export class UpdateCommentsDto {
@@ -26,4 +29,8 @@ export class UpdateCommentsDto {
   @IsUUID()
   @IsOptional()
   articleId: string;
+
+  @IsUUID()
+  @IsOptional()
+  userId: string;
 }
