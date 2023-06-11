@@ -59,10 +59,16 @@ const routes = [
                     path: "create",
                     component: () =>
                       import("@/views/Skill/Quest/Requirement/Create.vue"),
+                    component: () =>
+                      import("@/views/Skill/Quest/Requirement/Create.vue"),
                   },
                   {
                     name: "requirement_answer",
                     path: ":requirement/answer",
+                    component: () =>
+                      import("@/views/Skill/Quest/Requirement/Question.vue"),
+                  },
+                ],
                     component: () =>
                       import("@/views/Skill/Quest/Requirement/Question.vue"),
                   },
@@ -84,9 +90,12 @@ const routes = [
                 component: () => import("@/views/Skill/Quest/Quest.vue"),
               },
             ],
+            ],
           },
         ],
+        ],
       },
+    ],
     ],
   },
   {
@@ -98,6 +107,7 @@ const routes = [
         path: "",
         component: () => import("@/views/BoxeIdea/List.vue"),
       },
+    ],
     ],
   },
   {
@@ -223,3 +233,4 @@ router.beforeEach(async (to) => {
 });
 
 export default router;
+
