@@ -24,7 +24,7 @@ const currentUser = inject("auth_user");
         </Card>
 
         <div class="flex flex-wrap col-span-2 gap-8 justify-start h-fit">
-            <Card :class="'w-[48%] box-border bg-[#d9f6ec]'">
+            <Card :class="'w-[calc(50%-20px)] box-border bg-[#d9f6ec]'">
                 <template v-slot:title>
                     <div class="text-[#00BB7E]">
                         <h1>145</h1>
@@ -37,7 +37,7 @@ const currentUser = inject("auth_user");
                 </template>
             </Card>
 
-            <Card :class="'w-[48%] box-border bg-[#dbedff]'">
+            <Card :class="'w-[calc(50%-20px)] box-border bg-[#dbedff]'">
                 <template v-slot:title>
                     <div class="text-[#5B98D2]">
                         <h1>3</h1>
@@ -50,7 +50,7 @@ const currentUser = inject("auth_user");
                 </template>
             </Card>
 
-            <Card :class="'w-[48%] box-border bg-[#fed7d7]'">
+            <Card :class="'w-[calc(50%-20px)] box-border bg-[#fed7d7]'">
                 <template v-slot:title>
                     <div class="text-[#e53f49]">
                         <h1>50</h1>
